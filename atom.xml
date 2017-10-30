@@ -90,7 +90,7 @@
     <link href="http://html-js.site/2017/10/20/%E4%BD%BF%E7%94%A8-webpack-%E4%BC%98%E5%8C%96%E8%B5%84%E6%BA%90/"/>
     <id>http://html-js.site/2017/10/20/使用-webpack-优化资源/</id>
     <published>2017-10-20T07:23:36.000Z</published>
-    <updated>2017-10-20T09:22:28.000Z</updated>
+    <updated>2017-10-30T08:04:09.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前端应用的优化中，对加载资源的大小控制极其的重要，大多数时候我们能做的是在打包编译的过程对资源进行大小控制、拆分与复用。</p>
 <p>本片文章中主要是基于 webpack 打包，以 React、vue 等生态开发的单页面应用来举例说明如何从 webpack 打包的层面去处理资源以及缓存，其中主要我们需要做的是对 webpack 进行配置的优化，同时涉及少量的业务代码的更改。</p>
@@ -105,7 +105,7 @@
 </blockquote>
 <p>在我们的业务代码和第三方包的代码中很多时候需要判断 <code>process.env.NODE_ENV</code> 来做不同处理，而在生产环境中我们显然不需要非 <code>production</code> 的处理部分。</p>
 <p>在这里我们设置 <code>process.env.NODE_ENV</code> 为 <code>JSON.stringify(&#39;production&#39;)</code>，也就是表示讲打包环境设置为生产环境。之后配合 <code>UglifyJSPlugin</code> 插件就可以在给生产环境打包的时候去除部分的冗余代码。</p>
-<h3 id="（2）UglifyJSPlugin"><a href="#（2）UglifyJSPlugin" class="headerlink" title="（2）UglifyJSPlugin"></a>（2）UglifyJSPlugin</h3><p>UglifyJSPlugin 主要是用于解析、压缩 js 代码，它基于 <code>uglify-es</code> 来对 js 代码进行处理，它有多种配置选项：<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/uglifyjs-webpack-plugin%25E3%2580%2582" target="_blank" rel="external">https://github.com/webpack-contrib/uglifyjs-webpack-plugin</a>。</p>
+<h3 id="（2）UglifyJSPlugin"><a href="#（2）UglifyJSPlugin" class="headerlink" title="（2）UglifyJSPlugin"></a>（2）UglifyJSPlugin</h3><p>UglifyJSPlugin 主要是用于解析、压缩 js 代码，它基于 <code>uglify-es</code> 来对 js 代码进行处理，它有多种配置选项：<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/uglifyjs-webpack-plugin" target="_blank" rel="external">https://github.com/webpack-contrib/uglifyjs-webpack-plugin</a></p>
 <p>通过对代码的压缩处理以及去除冗余，大大减小了打包资源的体积大小。</p>
 <h2 id="代码拆分-按需加载"><a href="#代码拆分-按需加载" class="headerlink" title="代码拆分/按需加载"></a>代码拆分/按需加载</h2><p>在如 React 或者 vue 构建的单页面应用中，对页面路由与视图的控制是由前端来实现的，其对应的业务逻辑都在 js 代码中。</p>
 <p>当一个应用设计的页面和逻辑很多的时候，最终生成的 js 文件资源也会相当大。</p>
