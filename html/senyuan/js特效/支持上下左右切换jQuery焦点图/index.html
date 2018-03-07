@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<title>支持上下左右切换jQuery焦点图</title>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				function animateThumbs( direction, $item, val, opacity ) {
+					var ani = {
+						opacity: opacity
+					};
+					ani[ getMarginProperty() ] = val;
+
+					if ( direction == 'next' ) {
+						var x1 = '.t1',
+							x2 = '.t2, .t4',
+							x3 = '.t3, .t5, .t7',
+							x4 = '.t6, .t8',
+							x5 = '.t9';
+					} else {
+						var x1 = '.t9',
+							x2 = '.t6, .t8',
+							x3 = '.t3, .t5, .t7',
+							x4 = '.t2, .t4',
+							x5 = '.t1';
+					}
+
+					$(x1, $item).delay( _duration * 0    ).animate( ani, _duration );
+					$(x2, $item).delay( _duration * 0.25 ).animate( ani, _duration );
+					$(x3, $item).delay( _duration * 0.5  ).animate( ani, _duration );
+					$(x4, $item).delay( _duration * 0.75 ).animate( ani, _duration );
+					$(x5, $item).delay( _duration * 1    ).animate( ani, _duration );
+				}
+				function getMarginProperty() {
+					return ( _orientation == 'horizontal' ) ? 'marginLeft' : 'marginTop';
+				}
+				function getMargin( direction ) {
+					var margin = ( $window[ ( _orientation == 'horizontal' ) ? 'width' : 'height' ]() / 2 ) + 210
+					if ( direction == 'next' )
+					{
+						margin = -margin;
+					}
+					return margin;
+				}
+
+				var $window = $(window),
+					$inner = $('#inner'),
+					$carousel = $('#carousel');
+
+				var _orientation = 'horizontal',
+					_duration = 600,
+					_animating = false;
+
+				$inner.show();
+				$carousel.carouFredSel({
+					width: '100%',
+					height: '100%',
+					direction: 'left',
+					items: 1,
+					auto: false,
+					scroll: {
+						fx: 'none',
+						timeoutDuration: 3000,
+						conditions: function( direction ) {
+
+							_animating = true;
+
+							if ( $carousel.hasClass( 'prepared' ) )
+							{
+								$carousel.removeClass( 'prepared' );
+								return true;
+							}
+
+							$carousel.addClass( 'prepared' );
+
+							animateThumbs( direction, $carousel.children().first(), getMargin( direction ), 0 );
+
+							setTimeout(
+								function() {
+									$carousel.trigger( direction );
+								}, _duration + 800
+							);
+
+							return false;
+						},
+						onBefore: function( data ) {
+							var direction = data.scroll.direction;
+
+							var css = {
+								opacity: 0
+							};
+							css[ getMarginProperty() ] = -getMargin( direction );
+
+							$('img', data.items.visible).css( css );
+							animateThumbs( direction, data.items.visible, 0, 1 );
+						},
+						onAfter: function( data ) {
+							data.items.old.children().css({
+								'marginLeft': 0,
+								'marginTop': 0
+							});
+
+							setTimeout(
+								function() {
+									_animating = false;
+								}, _duration + 800
+							);
+						}
+					}
+				});
+
+				$('#left, #right, #up, #down').click(function() {
+					if ( _animating ) {
+						return false;
+					}
+
+					var direction = this.id,
+						scroll = ( direction == 'up' || direction == 'left' ) ? 'next' : 'prev',
+						newOrientation = ( direction == 'up' || direction == 'down' ) ? 'vertical' : 'horizontal';
+					
+					if ( _orientation != newOrientation ) {
+						_orientation = newOrientation;
+						$inner.toggleClass( 'horizontal' ).toggleClass( 'vertical' );
+						$carousel.trigger( 'configuration', [ 'direction', direction ] );
+					}
+					$carousel.trigger( scroll );
+					
+					return false;
+				});
+			});
+		</script>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background: #fed;
+			}
+			body * {
+				font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				font-size: 14px;
+				color: #222;
+				line-height: 20px;
+			}
+
+			#wrapper {
+				width: 100%;
+				height: 100%;
+				min-width: 500px;
+				min-height: 500px;
+				overflow: hidden;
+				position: relative;
+			}
+			#inner {
+				position: absolute;
+				display: none;
+			}
+			#inner.horizontal {
+				width: 100%;
+				height: 420px;
+				margin: -210px 0 0 0;
+				top: 50%;
+				left: 0;
+			}
+			#inner.vertical {
+				width: 420px;
+				height: 100%;
+				margin: 0 0 0 -210px;
+				top: 0;
+				left: 50%;
+			}
+			#carousel > div {
+				width: 420px;
+				height: 420px;
+				float: left;
+				position: relative;
+			}
+			#carousel img {
+				border-radius: 100px;
+				display: block;
+				width: 120px;
+				height: 120px;
+				position: absolute;
+			}
+			img.t1 {
+				left: 10px;
+				top: 10px;
+			}
+			img.t2 {
+				left: 150px;
+				top: 10px;
+			}
+			img.t3 {
+				left: 290px;
+				top: 10px;
+			}
+			img.t4 {
+				left: 10px;
+				top: 150px;
+			}
+			img.t5 {
+				left: 150px;
+				top: 150px;
+			}
+			img.t6 {
+				left: 290px;
+				top: 150px;
+			}
+			img.t7 {
+				left: 10px;
+				top: 290px;
+			}
+			img.t8 {
+				left: 150px;
+				top: 290px;
+			}
+			img.t9 {
+				left: 290px;
+				top: 290px;
+			}
+			
+			#left, #right, #up, #down {
+				border-radius: 50px;
+				border: 5px solid #ccc;
+				background: #fff;
+				display: block;
+				width: 60px;
+				height: 60px;
+				margin: -35px;
+				position: absolute;
+			}
+			#left {
+				top: 50%;
+				left: 0;
+			}
+			#right {
+				top: 50%;
+				right: 0;
+			}
+			#up {
+				top: 0;
+				left: 50%;
+			}
+			#down {
+				bottom: 0;
+				left: 50%;
+			}
+			#left:after, #right:after, #up:after, #down:after {
+				content: '';
+				border: 5px solid transparent;
+				display: block;
+				width: 0;
+				height: 0;
+				margin: -5px;
+				position: absolute;
+			}
+			#left:after {
+				border-right-color: #ccc;
+				border-right-width: 10px;
+				margin-left: 0;
+				left: 50%;
+				top: 50%;
+			}
+			#right:after {
+				border-left-color: #ccc;
+				border-left-width: 10px;
+				margin-right: 0;
+				right: 50%;
+				top: 50%;
+			}
+			#up:after {
+				border-bottom-color: #ccc;
+				border-bottom-width: 10px;
+				margin-top: 0;
+				top: 50%;
+				left: 50%;
+			}
+			#down:after {
+				border-top-color: #ccc;
+				border-top-width: 10px;
+				margin-bottom: 0;
+				bottom: 50%;
+				left: 50%;
+			}
+
+
+			#donate-spacer {
+				height: 0;
+			}
+			#donate {
+				border-top: 1px solid #999;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+				color: #999;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="inner" class="horizontal">
+				<div id="carousel">
+					<div>
+						<img src="img/t1.jpg" class="t1" />
+						<img src="img/t2.jpg" class="t2" />
+						<img src="img/t3.jpg" class="t3" />
+						<img src="img/t4.jpg" class="t4" />
+						<img src="img/t5.jpg" class="t5" />
+						<img src="img/t6.jpg" class="t6" />
+						<img src="img/t7.jpg" class="t7" />
+						<img src="img/t8.jpg" class="t8" />
+						<img src="img/t9.jpg" class="t9" />
+					</div>
+					<div>
+						<img src="img/t10.jpg" class="t1" />
+						<img src="img/t11.jpg" class="t2" />
+						<img src="img/t12.jpg" class="t3" />
+						<img src="img/t13.jpg" class="t4" />
+						<img src="img/t14.jpg" class="t5" />
+						<img src="img/t15.jpg" class="t6" />
+						<img src="img/t16.jpg" class="t7" />
+						<img src="img/t17.jpg" class="t8" />
+						<img src="img/t18.jpg" class="t9" />
+					</div>
+					<div>
+						<img src="img/t19.jpg" class="t1" />
+						<img src="img/t20.jpg" class="t2" />
+						<img src="img/t21.jpg" class="t3" />
+						<img src="img/t22.jpg" class="t4" />
+						<img src="img/t23.jpg" class="t5" />
+						<img src="img/t24.jpg" class="t6" />
+						<img src="img/t25.jpg" class="t7" />
+						<img src="img/t26.jpg" class="t8" />
+						<img src="img/t27.jpg" class="t9" />
+					</div>
+				</div>
+			</div>
+			<a href="#" id="left"></a>
+			<a href="#" id="right"></a>
+			<a href="#" id="up"></a>
+			<a href="#" id="down"></a>
+		</div>
+<div style="text-align:center;clear:both">
+</div>
+	</body>
+</html>

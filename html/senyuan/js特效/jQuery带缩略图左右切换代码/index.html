@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery带缩略图左右切换代码 - A5源码</title>
+
+<link href="css.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var oDiv = $("#play");  //外部盒子
+	var count = $("#play ul li").length;  //内部图片数量
+	var countwidth = $("#play ul li").width();  //图片边框宽度
+	var oUl = $("#play ul").css("width",count*countwidth);  //ul li总宽度
+	var now = 0;
+	var next = $("#next");
+	var prev = $("#prev");
+	//点击按钮数量
+	for(var i = 0; i < count; i++){
+		$("#play ol").append("<li>" + Number(i+1) + "</li>");
+		$("#play ol li:first").addClass("active");
+	}
+	//左右点击图片获取
+	var nI = $("#play ul li:nth-child(2)").find("img").attr("src");
+	$(".nextImg img").attr("src",nI);
+	var pI = $("#play ul li:last-child").find("img").attr("src");
+	$(".prevImg img").attr("src",pI);
+	//按钮点击事件
+	var aBtn = $("#play ol li");
+	aBtn.each(function(index){
+		$(this).click(function(){
+			clearInterval(timer);
+			tab(index);
+			nextImg();
+			prevImg();
+			timer=setInterval(autoRun,auto);
+		});
+	});
+	//图片循环事件
+	function tab(index){
+		now = index;
+		aBtn.removeClass("active");
+		aBtn.eq(index).addClass("active");
+		oUl.stop(true,false).animate({"left":-470 * now},400);
+	}
+	//下一张按钮图片切换
+	function nextImg(){
+		var d = $("#play ul li").find("img").eq(now+1).attr("src");
+		var nI = $("#play ul li:nth-child(1)").find("img").attr("src");
+		$(".nextImg").find("img").attr("src",d);
+		if(now==count-1){
+			$(".nextImg").find("img").attr("src",nI);
+		}
+	}
+	//上一张图片按钮切换
+	function prevImg(){
+		var f = $("#play ul li").find("img").eq(now-1).attr("src");
+		$(".prevImg").find("img").attr("src",f);
+	}
+	
+	//下一张点击事件
+	next.click(function(){
+		clearInterval(timer);
+		now++;
+		if(now==count){
+			now=0;
+		}
+		tab(now);
+		nextImg();
+		prevImg();
+		timer=setInterval(autoRun, 2000);
+	});
+	//上一张点击事件
+	prev.click(function(){
+		clearInterval(timer);
+		now--;
+		if(now==-1){
+			now=count-1;
+		}
+		tab(now);
+		nextImg();
+		prevImg();
+		timer=setInterval(autoRun, 2000);
+	});
+	//自动轮播定义
+	function autoRun(){
+		now++;
+		if(now==count){
+			now=0;
+		}
+		tab(now);
+		nextImg();
+		prevImg();
+	};
+
+	var timer=setInterval(autoRun, 2000);
+});
+</script>
+</head>
+
+<body>
+
+<div class="play" id="play">
+	<a href="javascript:void" id="next">>><div class="nextImg"><img width="80" height="54" src="" /></div></a>
+    <a href="javascript:void" id="prev"><<<div class="prevImg"><img width="80" height="54" src="" /></div></a>
+    <ol>
+    	
+    </ol>
+	<ul>
+		<li><a href="#"><img src="images/1.jpg" alt="广告一" /></a></li>
+		<li><a href="#"><img src="images/2.jpg" alt="广告二" /></a></li>
+		<li><a href="#"><img src="images/3.jpg" alt="广告三" /></a></li>
+		<li><a href="#"><img src="images/4.jpg" alt="广告四" /></a></li>
+	</ul>
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

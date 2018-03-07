@@ -1,0 +1,269 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery卡牌滑动切换代码 - A5源码</title>
+
+<script src="js/jquery.min.js"></script>
+
+<style>
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.title{
+    font-weight: 700;
+    font-size: 55px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.description{
+    font-size: 21px;
+    font-weight: 400;
+    color: #888;
+}
+.bold{
+    font-weight: 700;
+}
+.slider{
+    padding: 50px 0;
+}
+.slider-origin{
+    background-color: #bd2cbd;
+    border-radius: 50%;
+    /*margin-top: 20%;*/
+    display: inline-block;
+    position: relative;
+}
+.slider-inner{
+    display: inline-block;
+}
+.slider-item{
+    width: 74px;
+    height: 100px;
+    background-color: rgba(128,0,128,0.4);
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    position: absolute;
+    bottom: 200%;
+    left: 50%;
+    margin-left: -37px;
+		cursor: pointer;
+    
+    transform-origin: center 175%;
+    -webkit-transform-origin: center 175%;
+    -ms-transform-origin: center 175%;
+    -moz-transform-origin: center 175%;
+    
+    -webkit-transition: -webkit-transform 0.5s;
+    
+    transition: -webkit-transform 0.5s;
+    
+    transition: transform 0.5s;
+    
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+
+    text-align: left;
+    color: #fff;
+    padding: 7px;
+    box-sizing: border-box;
+
+    -moz-user-select: -moz-none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+.slider-item.active{
+    background-color: purple;
+		cursor: default;
+}
+.slider-item:not(.active):hover{
+	background-color: #540554;
+}</style>
+</head>
+<body>
+
+<div class="guid">
+    <h1 class="title">圆形滑块</h1>
+</div>
+
+<div class="slider">
+    <div class="slider-inner">
+        <div class="slider-origin">
+            <div class="slider-item">1</div>
+            <div class="slider-item">2</div>
+            <div class="slider-item">3</div>
+            <div class="slider-item">4</div>
+            <div class="slider-item">5</div>
+            <div class="slider-item">6</div>
+            <div class="slider-item">7</div>
+            <div class="slider-item">8</div>
+            <div class="slider-item">9</div>
+            <div class="slider-item">10</div>
+            <div class="slider-item">11</div>
+            <div class="slider-item">12</div>
+            <div class="slider-item">13</div>
+            <div class="slider-item">14</div>
+            <div class="slider-item">15</div>
+            <div class="slider-item">16</div>
+            <div class="slider-item">17</div>
+            <div class="slider-item">18</div>
+            <div class="slider-item">19</div>
+            <div class="slider-item">20</div>
+            <div class="slider-item">21</div>
+            <div class="slider-item">22</div>
+            <div class="slider-item">23</div>
+            <div class="slider-item">24</div>
+            <div class="slider-item">25</div>
+            <div class="slider-item">26</div>
+            <div class="slider-item">27</div>
+            <div class="slider-item">28</div>
+            <div class="slider-item">29</div>
+            <div class="slider-item">30</div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    // helpful variables
+    var slider = $('.slider');
+    var sliderInner = slider.find('.slider-inner');
+    var sliderOrigin = slider.find('.slider-origin');
+    var sliderItems = slider.find('.slider-item');
+    var itemsLength = sliderItems.length;
+    var calcDeg = 270 / itemsLength;
+    var clickDown = false;
+    var mouseMove = false;
+    var moveFrom = null;
+    var moveTo = null;
+    var extraDeg = 0;
+    var currentItem = sliderItems.eq(0);
+
+    // slider origin width & height = half of item height
+    sliderOrigin.width(sliderItems.outerHeight() / 2);
+    sliderOrigin.height(sliderItems.outerHeight() / 2);
+    
+    // slider inner width & height = item height * 3.5
+    sliderInner.width(sliderItems.outerHeight()*3.5);
+    sliderInner.height(sliderItems.outerHeight()*3.5);
+
+    var sliderInnerWidth = sliderInner.outerWidth();
+    var sliderInnerOffset = sliderInner.offset();
+
+    sliderOrigin.css('margin-top',(sliderInner.height() / 2) - (sliderOrigin.height() / 2));
+    
+    // calc rotation positioning
+    function rotationPosition(exceptIndex){
+        exceptIndex = exceptIndex | 0;
+        var i = 1;
+        sliderItems.each(function(e){
+            var $this = $(this);
+            extraDeg = exceptIndex > itemsLength/2? 360: 0;
+            if(e === exceptIndex){
+                $this.addClass('active').css('transform', 'rotate('+extraDeg+'deg)');
+            }else{
+                $this.css('transform', 'rotate('+((i*calcDeg)+45)+'deg)');
+                i++;
+            }
+        });
+    }rotationPosition();
+
+
+    // click event on item
+    var clickedItemIndex = null;
+    function sliderItemsClickEvent(){
+
+        sliderItems.mousedown(function(e){
+            if(clickedItemIndex == null && e.which == 1){
+                clickedItemIndex = $(this).index();
+            }
+        });
+        sliderItems.mouseup(function(){
+            var $this = $(this);
+            if(clickedItemIndex === $this.index()){
+                currentItem = $this;
+                pushIndex($this.index());
+            }
+        });
+    }sliderItemsClickEvent();
+
+    // push index of the activated item
+    function pushIndex(index){
+        sliderItems.removeClass('active');
+        rotationPosition(index);
+    }
+
+    // clickDown = true if mousedown on slider
+    sliderInner.mousedown(function(e){
+        clickDown = true;
+        moveFrom = e.pageX;
+    });
+
+
+    // clickDown = false if mouseup on any place in the page
+    $(document).mouseup(function(e){
+        clickDown = false;
+        setTimeout(function(){ clickedItemIndex = null; }, 505);
+        // setTimeout(function(){clickDown = false;}, 505);
+        if(mouseMove){
+            mouseMove = false;
+            moveto = e.pageX;
+            swipe(moveFrom, moveto);
+        }
+    });
+
+
+    // calc mouse move on sliderInner div
+    sliderInner.mousemove(function(e){
+        if(clickDown){
+            if(!mouseMove){mouseMove = true;}
+            var offsetX = e.pageX - sliderInnerOffset.left;
+            var move = moveFrom - sliderInnerOffset.left;
+            var motionDeg = ((offsetX - move)/sliderInnerWidth) * (calcDeg*2);
+            extraDeg = currentItem.index() > itemsLength/2? 360:0; 
+            sliderInner.find('.slider-item.active').css('transform', 'rotate('+(motionDeg+extraDeg)+'deg)');
+        }
+    });
+
+    function swipe(from, to){
+        var distance = Math.abs(from - to); // mouse move distance
+        var rightDir = from < to;
+        if(distance > sliderInnerWidth/4){
+            navigate();
+        }else{
+            currentItem.css('transform', 'rotate('+(currentItem.index() > itemsLength/2? 360:0)+'deg)');
+        }
+
+        function navigate(){
+            if(rightDir){
+                var nextIndex = currentItem.next().index();
+                pushIndex(nextIndex != -1? nextIndex:  0);
+            }else{
+                var prevIndex = currentItem.prev().index();
+                pushIndex( prevIndex != -1? prevIndex:  sliderItems.length -1);
+            }
+            currentItem = sliderInner.find('.slider-item.active');
+        }
+
+    }
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://down.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

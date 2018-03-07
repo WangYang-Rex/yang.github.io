@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+<title>jquery图片自动播放选项卡 - 网站源码</title>
+<link rel="stylesheet" href="css/zzsc.css">
+</head>
+
+<body>
+<br><br><br>
+<div class="zxx_test_list_list">
+	<div class="tab_limit">
+		<div id="tabAutoOperate" class="tab_auto_play"></div>
+		<ul id="tabAutoTrigger" class="tablist">
+			<li class="tab"><a href="javascript:" class="tab_a tab_on" data-rel="tabAutoPlay1">美女1</a></li>
+			<li class="tab"><a href="javascript:" class="tab_a" data-rel="tabAutoPlay2">美女2</a></li>
+		</ul>
+		<ul class="tab_content tab_content_rel">
+			<li id="tabAutoPlay1" class="tabpanel_abs"><img src="img/mm1.jpg"></li>
+			<li id="tabAutoPlay2" class="tabpanel_abs" style="display:none;"><img src="img/mm3.jpg"></li>
+		</ul>
+	</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-powerSwitch.js"></script>
+<script>
+$("#tabAutoTrigger a").powerSwitch({
+	classAdd: "tab_on",
+	animation: "translate",
+	eventType: "hover",
+	autoTime: 3000,
+	container: $("#tabAutoOperate")
+});
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+</div>
+</body>
+</html>

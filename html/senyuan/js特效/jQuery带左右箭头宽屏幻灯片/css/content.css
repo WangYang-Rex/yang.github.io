@@ -1,0 +1,289 @@
+/**
+ * styling for DIVAS slider - skin 1
+ * @author Federica Sibella - Michela Chiucini
+ * @date 2014/04/10
+ * @version 0.1
+ */
+
+/**
+ *  styles only for demos purposes
+ */
+#logo img{
+	max-width: 290px;
+	margin: 15px 0;
+}
+
+#demos {
+	position: relative;
+	margin: 2em auto 0em auto;
+	padding: 0;
+}
+
+#demos_buttons {
+	position: relative;
+	text-align: center;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+#demos_buttons input[type=button] {
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 150%;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 15px 1% 0;
+	width: 17%;
+    outline: medium none;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    background: none repeat scroll 0 0 #FF744D;
+    border-radius: 4px;
+    color: #FFFFFF;
+    padding: 0.75em 2em;
+    border: 2px solid #FF744D;
+}
+
+
+#demos_buttons input[type=button].demo-active, 
+#demos_buttons input[type=button]:active,
+#demos_buttons input[type=button]:hover {
+	background: #fff;
+    color: #FF744D;
+}
+
+header {
+	max-width: 1140px;
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+#logo {
+	position: relative;
+	padding: 1em auto;
+	padding: 0;
+	width: 40%;
+	float: left;
+	text-align: center;
+}
+#nav{
+	float: left;
+	width: 30%;
+}
+
+#nav li {
+	float: left;
+    font-size: 1.6em;
+    font-weight: bold;
+    line-height: 70px;
+    margin-right: 40px;
+}
+#nav li a{
+	color: #313131;
+	text-decoration: none;
+}
+#nav li a:hover{
+	color: #FF744D;
+}
+header #buy{
+	text-align: right;
+}
+header a.buy{
+	background: none repeat scroll 0 0 #FF744D;
+    border: 3px solid #FF744D;
+    border-radius: 4px;
+	padding: 0.5em 2em;
+	color: #fff;
+	text-decoration: none;
+    font-size: 1.6em;
+	margin-top: 1em;
+	display: inline-block;
+	font-weight: 700;
+}
+
+
+.content{
+	width: 90%;
+	max-width: 1140px;
+	margin: 0 auto;
+	font-size: 2em;
+	font-weight: 300;
+}
+.content.intro{
+	border-top: 1px solid #ccc;
+	margin-top: 3em;
+	padding-bottom: 3em;
+}
+
+
+.content h2{
+	color: #FF744D;
+    font-size: 1.9em;
+    font-weight: 300;
+    padding-top: 1.5em;
+    text-align: center;
+}
+.content.bg h2{
+	color: #fff;
+    font-size: 1em;
+    text-transform: none;
+	padding: 0 0 1em;
+}
+
+.content h3{
+	font-size: 1.5em;
+    font-weight: normal;
+    padding-top: 0.3em;
+	text-align: center;
+}
+.content p{
+	font-size: 1.2em;
+    margin: 0 auto;
+    max-width: 800px;
+	text-align: center;
+}
+.content ul{
+	padding: 2em 0 4em;
+}
+.content li{
+	display: table;
+	padding-bottom: 15px;
+	font-size: 1.2em;
+	position: relative;
+	padding-left: 30px;
+}
+.content li i{
+	color: #FF744D;	
+	left: 0;
+    position: absolute;
+    top: 5px;
+}
+footer{
+	overflow: hidden;
+	background: #313131;
+	color : #f7f7f7;
+	padding: 3em 0 0;
+	font-size: 1.4em;
+}
+footer > div{
+	width: 90%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+#social {
+	width: 40%;
+	float: left;
+	text-align: right;
+}
+.fb_iframe_widget {
+    margin-right: 20px;
+    top: -4px;
+}
+#___plusone_0 {
+   float: right !important;
+}
+
+#follow {
+	width: 20%;
+	float: left;
+	text-align: center;
+}
+#follow a{
+	position: relative;
+	top: -10px;
+	font-size: 1.5em;
+	font-weight: 900;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #55ACEE;
+	display: inline-block;
+	-webkit-border-radius: 33px;
+	-moz-border-radius: 33px;
+	border-radius: 33px;
+	
+}
+#follow a i:before{
+	font-size: 1.5em;
+	margin-left: 3px;
+	
+}
+
+#copyright {
+	width: 40%;
+	float: left;
+}
+.morph-button > button{
+	text-decoration: none;
+	background: #ccc;
+	color: #313131;
+	padding: 0.3em 0.5em;
+	display: inline-block;
+	margin-left: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+}
+
+.morph-button > button:hover{
+	color: #fff;
+}
+
+header .morph-button > button{
+	background: none;
+	color: #313131;
+	padding:0;
+	margin-left: 10px;
+	font-weight: 700;
+	font-size: 1em;
+}
+header .morph-button > button:hover{
+	color: #FF744D;
+}
+.morph-button form{
+	max-width: 500px;
+	margin: 0 auto;
+}
+.morph-button label,
+.morph-button input,
+.morph-button textarea{
+	display: block;
+	width: 90%;
+}
+.morph-button label{
+	color: #999999;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    line-height: 2;
+    margin-top: 1em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.morph-button input{
+	border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    height: 3.6em;
+}
+.morph-button input[type="button"]{
+	background: #FF744D;
+	color: #fff;
+	font: inherit;
+}
+
+@media screen and (min-width: 43.75em) {
+	.content ul{
+		 -moz-columns: 2 auto;
+		 -webkit-columns: 2 auto;
+		 columns: 2 auto;
+		 -moz-column-gap: 3em;
+		 -webkit-column-gap: 3em;
+		 column-gap: 3em;
+	}
+}

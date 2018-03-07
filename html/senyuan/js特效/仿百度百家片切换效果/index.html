@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿百度百家片切换效果-A5源码</title>
+
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(function (){
+			
+	var slid = $('ul.slide_box li'),controls = $('ul.bx-controls a');
+	slid.addClass('none');
+	slid.eq(0).removeClass('none');
+
+	var slideindex = 0;
+	function switchi() {
+		if(slideindex == slid.length - 1){
+			slideindex = 0;
+		}else {
+			slideindex = slideindex + 1;
+		}
+		slid.addClass('none');
+		slid.eq(slideindex).removeClass('none');
+		controls.removeClass('actives');
+		controls.eq(slideindex).addClass('actives');
+	}
+	
+	var timer = setInterval(switchi, 3000);
+
+	function options(indexs) {
+		slid.addClass('none');
+		slid.eq(indexs).removeClass('none');
+		controls.removeClass('actives');
+		controls.eq(indexs).addClass('actives');
+	}
+
+	$('a.options').click(function(){
+		var drec = $(this).data('drec');
+		if(drec == 'pre') {
+			if(slideindex == 0) {
+				slideindex = 3;
+			}else {
+				slideindex = slideindex - 1;
+			}
+		}else {
+			if(slideindex == 3) {
+				slideindex = 0;
+			}else {
+				slideindex = slideindex + 1;
+			}
+		}
+		clearInterval(timer);
+		options(slideindex);
+		timer = setInterval(switchi, 3000);
+	});
+
+	$('ul.bx-controls li').hover(function(){
+		slideindex = $(this).index();
+		clearInterval(timer);
+		options(slideindex);
+	},function(){
+		timer = setInterval(switchi, 3000);
+	});
+	
+})
+</script>
+
+</head>
+<body>
+
+<div class="top_slide_wrap">
+	<div class="bx-wrapper">
+		<ul class="slide_box">
+			<li><a href="http://down.admin5.com/"><img src="images/s1.jpg" alt=""><p>周杰伦</p></a></li>
+			<li><a href="http://down.admin5.com/"><img src="images/s2.jpg" alt=""><p>周杰伦</p></a></li>
+			<li><a href="http://down.admin5.com/"><img src="images/s3.jpg" alt=""><p>周杰伦</p></a></li>
+			<li><a href="http://down.admin5.com/"><img src="images/s4.jpg" alt=""><p>周杰伦</p></a></li>
+		</ul>
+		<ul class="bx-controls">
+			<li>
+				<a class="actives" href="http://down.admin5.com/">
+					<img src="images/ss1.jpg" alt="">
+					<span></span>
+					<p>周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周</p>
+				</a>
+			</li>
+			<li>
+				<a href="http://down.admin5.com/">
+					<img src="images/ss2.jpg" alt="">
+					<span></span>
+					<p>周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周</p>
+				</a>
+			</li>
+			<li>
+				<a href="http://down.admin5.com/">
+					<img src="images/ss3.jpg" alt="">
+					<span></span>
+					<p>周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周</p>
+				</a>
+			</li>
+			<li>
+				<a href="http://down.admin5.com/">
+					<img src="images/ss4.jpg" alt="">
+					<span></span>
+					<p>周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<a class="options pre" href="javascript:;" data-drec="pre"><i class="pre"></i></a>
+	<a class="options next" href="javascript:;" data-drex="next"><i class="next"></i></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+html,body,div,strong{
+	margin: 0;
+	padding: 0;
+
+}
+body {
+	overflow: hidden;
+}
+.wrap {
+	width: 600px;
+	margin:50px auto 0;
+	position: relative;
+}
+/* ……………………………………………………………………企鹅头部…………………………………………………………………… */
+
+/* 上半部分黑色头部 */
+.headtop {
+	width: 240px;
+	height: 110px;
+	background: #000;
+	margin: 0 auto;
+	border-top-left-radius: 120px 110px; 
+	border-top-right-radius: 120px 110px;
+	position: relative; 
+	z-index: 999;
+}
+/* 下半部分黑色头部 */
+.headbottom {
+	width: 240px;
+	height: 90px;
+	background: #000;
+	border-bottom-left-radius: 120px 90px; 
+	border-bottom-right-radius: 120px 90px;
+	position: absolute;
+	top:110px;
+	z-index: 1;
+}
+
+h1 {
+	position: absolute;
+}
+/* 左眼部分 */
+.lefteye {
+	width: 46px;
+	height: 70px;
+	background: #fff;
+	border-radius: 50% 50%;
+	position: absolute;
+
+	top: 30px;
+	left: 64px;
+	z-index: 2;
+}
+.lefteye_in {
+	width: 20px;
+	height: 30px;
+	background: #000;
+	border-radius: 50% 50%;
+	margin-left: 23px;
+    margin-top: 20px;
+}
+.eyeshow {
+	display: block;
+	width: 8px;
+	height: 10px;
+	border-radius: 50% 50%;
+	background: #fff;
+	position: absolute;
+	top:26px;
+	left: 32px;
+}
+
+/*右眼部分 */
+.righteye {
+	width: 46px;
+	height: 70px;
+	background: #fff;
+	border-radius: 50% 50%;
+	position: absolute;
+	top: 30px;
+	left: 130px;
+	z-index: 2;
+}
+.righteye_in {
+	width: 19px;
+	height: 23px;
+	background: #000;
+	border-top-left-radius: 17px 30px;
+	border-top-right-radius: 17px 30px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border:1px solid #000;
+	margin-left:7px;
+	margin-top: 16px;
+}
+.eyebai{
+	display: block;
+	width: 12px;
+	height: 19px;
+	border-top-left-radius:5px 14px;
+	border-top-right-radius:8px 14px;
+	background: #fff; 
+	margin-top: 10px;
+	margin-left: 4px;
+}
+/*右眼部分 */
+
+/*嘴巴*/
+.mouth {
+	width: 158px;
+	height: 56px;
+	background: #FFA600;
+	border-radius:50%;
+	position: absolute;
+	top: 106px;
+	left: 42px; 
+	z-index: 2;
+}
+.mouth_bar {
+	width: 126px;
+	height: 30px;
+	background: #000;
+	position: absolute;
+	top: 142px;
+	left: 55px;
+	z-index: 2;
+	border-bottom-left-radius: 76px 96px;
+	border-bottom-right-radius: 76px 96px;
+
+}
+.mouth_bar1 {
+	width: 126px;
+	height: 20px;
+	background: #ffa600;
+	position: absolute;
+	z-index: 3;
+	border-bottom-left-radius: 104px 32px ;
+	border-bottom-right-radius:104px 32px ;
+
+}
+/*嘴巴*/
+/* ……………………………………………………………………end  企鹅头部…………………………………………………………………… */
+
+
+/* ……………………………………………………………………star 企鹅身体…………………………………………………………………… */
+
+/* 企鹅身体黑色部分 */
+.body {
+	width: 276px;
+    height: 260px;
+    background: #000;
+    position: absolute;
+    top: 142px;
+    left: 167px;
+    border-top-left-radius: 160px 140px;
+    border-bottom-left-radius: 160px 140px;
+    border-top-right-radius: 160px 140px;
+    border-bottom-right-radius: 160px 140px;
+    z-index: 2;
+}
+/* 企鹅身体黑色部分 */
+
+/* 红色围脖 */
+.body_1{
+	width: 264px;
+    height: 137px;
+    background: #ff0000;
+     border: 5px solid #000;
+    border-top-left-radius: 195px 100px;
+    border-bottom-left-radius: 237px 146px;
+    border-top-right-radius: 195px 100px;
+    border-bottom-right-radius: 269px 146px;
+    position: absolute;
+    bottom: 159px;
+    left: 0px;
+
+}
+
+.body_2{
+  	width: 249px;
+    height: 139px;
+    position: absolute;
+    background: #000;
+    top: -33px;
+    left: 7px;
+    border-radius: 50%;
+    border: 1px #000 solid;
+}
+
+.body_3{
+	width: 241px;
+    height: 145px;
+    position: absolute;
+    background: red;
+    top: 0px;
+    left: 5px;
+    border-radius: 50%;
+}
+/* 红色围脖 */
+
+/* 白色企鹅肚子 */
+.tummy {
+	width: 240px;
+    height: 240px;
+    background: #fff;
+    position: absolute;
+    top: 11px;
+    left: 17px;
+    border-radius: 50%;
+}
+/* 白色企鹅肚子 */
+
+
+/* 企鹅口袋 */
+.pocket {
+	width: 58px;
+    height: 78px;
+    position: absolute;
+    top: 72px;
+    left: 19px;
+    border: 3px solid #000;
+    background: red;
+    border-top-left-radius: 20px 52px;
+    border-bottom-left-radius: 40px 40px;
+    border-top-right-radius: 0px 0px;
+    border-bottom-right-radius: 21px 21px;
+}
+
+.pocket .pocket_line1 {
+	width: 11px;
+    height: 43px;
+    border-bottom-left-radius: 29px 57px;
+    border-top-left-radius: 0px 0px;
+    border: 9px solid #000;
+    border-top: none;
+    border-right: none;
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    -webkit-transform:rotateZ(10deg);
+    -moz-transform:rotateZ(10deg);
+    -ms-transform:rotateZ(10deg);
+    -o-transform:rotateZ(10deg);
+    transform:rotateZ(10deg);
+}
+
+.pocket .pocket_line2 {
+	width: 2px;
+    height: 45px;
+    border-bottom-left-radius: 11px 24px;
+    border-top-left-radius: 10px 15px;
+    border: 9px solid red;
+    border-top: none;
+    border-right: none;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+}
+
+/* 企鹅左右手 */
+.lefthand,.righthand{
+	width: 49px;
+    height: 160px;
+    background: #000;
+    position: absolute;
+    
+}
+
+.lefthand {
+	top: 20px;
+    left: -29px;
+    border-top-left-radius: 89px 166px;
+    border-top-right-radius: 6px 63px;
+    border-bottom-left-radius: 85px 194px;
+    border-bottom-right-radius: 40px 128px;
+    -webkit-transform: rotateZ(20deg);
+    -moz-transform: rotateZ(20deg);
+    -ms-transform: rotateZ(20deg);
+    -o-transform: rotateZ(20deg);
+    transform: rotateZ(20deg);
+    -webkit-animation: left_rotate 0.5s infinite;
+    -moz-animation: left_rotate 0.5s infinite;
+    -ms-animation: left_rotate 0.5s infinite;
+    -o-animation: left_rotate 0.5s infinite;
+    animation: left_rotate 0.5s infinite;
+    -webkit-animation-direction:alternate;
+    -moz-animation-direction:alternate;
+    -ms-animation-direction:alternate;
+    -o-animation-direction:alternate;
+    animation-direction:alternate;
+}
+.righthand {
+	top: 20px;
+    left: 258px;
+    border-top-right-radius: 89px 166px;
+    border-bottom-right-radius: 85px 194px;
+    border-top-left-radius: 6px 63px;
+    border-bottom-left-radius: 40px 128px;
+    -webkit-transform: rotateZ(-20deg);
+    -moz-transform: rotateZ(-20deg);
+    -ms-transform: rotateZ(-20deg);
+    -o-transform: rotateZ(-20deg);
+    transform: rotateZ(-20deg);
+    -webkit-animation: right_rotate 0.5s infinite;
+    -moz-animation: right_rotate 0.5s infinite;
+    -ms-animation: right_rotate 0.5s infinite;
+    -o-animation: right_rotate 0.5s infinite;
+    animation: right_rotate 0.5s infinite;
+    -webkit-animation-direction:alternate;
+    -moz-animation-direction:alternate;
+    -ms-animation-direction:alternate;
+    -o-animation-direction:alternate;
+    animation-direction:alternate;
+}
+/* 企鹅左右手 */
+/* ……………………………………………………………………end 企鹅身体…………………………………………………………………… */
+
+
+
+/* ……………………………………………………………………star 企鹅脚部…………………………………………………………………… */
+.footer .left_footer, .footer .right_footer {
+	width: 134px;
+	height: 74px;
+	position: absolute;
+	background: #ffa600;
+	border: 3px solid #000;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.footer .left_footer {
+	top: 347px;
+	left: 163px;
+}
+
+
+.footer .right_footer {
+	top: 347px;
+	left: 320px;
+}
+/* ……………………………………………………………………end 企鹅脚部…………………………………………………………………… */
+
+
+
+@keyframes left_rotate
+{
+	 from  
+           {   
+               -webkit-transform-origin:right 30%;
+               -webkit-transform: rotateZ(60deg);
+           }  
+  
+           to  
+           {  
+               -webkit-transform-origin:right 30%;
+               -webkit-transform: rotateZ(30deg);
+           }  
+
+}
+
+@keyframes right_rotate
+{
+	 from  
+           {   
+               -webkit-transform-origin:left 30%;
+               -webkit-transform: rotateZ(-60deg);
+           }  
+  
+           to  
+           {  
+               -webkit-transform-origin:left 30%;
+               -webkit-transform: rotateZ(-30deg);
+           }  
+
+} 
+
+@-webkit-keyframes left_rotate
+{
+	 from  
+           {   
+               -webkit-transform-origin:right 30%;
+               -webkit-transform: rotateZ(60deg);
+           }  
+  
+           to  
+           {  
+               -webkit-transform-origin:right 30%;
+               -webkit-transform: rotateZ(30deg);
+           }  
+
+}
+
+@-webkit-keyframes right_rotate
+{
+	 from  
+           {   
+               -webkit-transform-origin:left 30%;
+               -webkit-transform: rotateZ(-60deg);
+           }  
+  
+           to  
+           {  
+               -webkit-transform-origin:left 30%;
+               -webkit-transform: rotateZ(-30deg);
+           }  
+
+} 
+@-moz-keyframes left_rotate
+{
+	 from  
+           {   
+               transform-origin:right 30%;
+               transform: rotateZ(60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:right 30%;
+               transform: rotateZ(30deg);
+           }  
+
+}
+
+@-moz-keyframes right_rotate
+{
+	 from  
+           {   
+               transform-origin:left 30%;
+               transform: rotateZ(-60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:left 30%;
+               transform: rotateZ(-30deg);
+           }  
+
+} 
+@-ms-keyframes left_rotate
+{
+	 from  
+           {   
+               transform-origin:right 30%;
+               transform: rotateZ(60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:right 30%;
+               transform: rotateZ(30deg);
+           }  
+
+}
+
+@-ms-keyframes right_rotate
+{
+	 from  
+           {   
+               transform-origin:left 30%;
+               transform: rotateZ(-60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:left 30%;
+               transform: rotateZ(-30deg);
+           }  
+
+} 
+@-o-keyframes left_rotate
+{
+	 from  
+           {   
+               transform-origin:right 30%;
+               transform: rotateZ(60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:right 30%;
+               transform: rotateZ(30deg);
+           }  
+
+}
+
+@-o-keyframes right_rotate
+{
+	 from  
+           {   
+               transform-origin:left 30%;
+               transform: rotateZ(-60deg);
+           }  
+  
+           to  
+           {  
+               transform-origin:left 30%;
+               transform: rotateZ(-30deg);
+           }  
+
+} 

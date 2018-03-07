@@ -1,0 +1,28 @@
+body{margin:0; font-size:84%; background:#eee; color:#333; font-family:Verdana, Geneva, sans-serif;}
+ul,ol,form,h1,h2,h3,h4,h5,h6,p{padding:0; margin:0; list-style-type:none;}
+a{color:#34538b; text-decoration: none;}
+
+/* -------------------------------------- divide -------------------------------------------- */
+/* Tab */
+.tablist { background-color: #ddd; font-size: 14px; *zoom: 1; }
+.tablist:after { display: table; content:''; clear:both; }
+.tab { float: left; }
+.tab_a { display: block; padding: .5em 1.5em; color: #333; text-decoration: none; }
+.tab_a:hover { background-color: #ccc; }
+.tab_on, .tab_on:hover { background-color: #4a9b00; color: #fff; }
+.tab_content { min-height: 250px; border: 1px solid #ddd; }
+.tabpanel { padding: 15px; }
+.tab_content_rel { height: 256px; overflow: hidden; position: relative; }
+.tabpanel_abs { position: absolute; width: 100%; height: 100%; left: 0; top: 0; text-align: center; }
+.tabpanel_abs img { width: 90%; height: 190px; margin-top: 30px; }
+.tab_limit { width: 300px; margin: auto; }
+.tab_auto_play { position: relative; text-align: center; *zoom:1; z-index: 1; }
+.prev, .next { position: absolute; width: 30px; height: 60px; background: #bbb center no-repeat; border-radius: 4px; }
+.prev { background-image: url(../img/prev.png); }
+.next { background-image: url(../img/next.png); }
+.prev:hover, .next:hover { background-color: #aaa; }
+.tab_auto_play .prev { left: -60px; top: 110px; }
+.tab_auto_play .next { right: -60px; top: 110px; }
+.pause, .play { width: 50px; height: 50px; position: absolute; left: 50%; top: 110px; margin-left: -25px; z-index: 1; }
+.pause { background: url(../img/pause.png) no-repeat 0 -50px; }
+.play { background: url(../img/play.png) no-repeat 0 -50px; }

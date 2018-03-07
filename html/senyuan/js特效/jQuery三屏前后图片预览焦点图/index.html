@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery三屏前后图片预览焦点图 - A5源码</title>
+
+<script type="text/javascript" src="js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide2.js"></script>
+
+</head>
+<body>
+<style type="text/css">
+	/* css 重置 */
+	*{margin:0; padding:0; list-style:none; }
+	body{ background:#fff; font:normal 12px/22px 宋体; width:100%; }
+	img{ border:0;  }
+	a{ text-decoration:none; color:#333;  }
+	a:hover{ color:#1974A1;  }
+	.slider{ width:630px;  height:338px; padding:0 130px;  margin:0 auto;  position:relative; overflow:hidden; background:#000;  }
+	.slider .bd{ position:absolute; left:0; top:0; }
+	.slider .bd li{ overflow:hidden; }
+	.slider .bd li img{ display:block; width:630px; height:338px;    }
+	.slider .tempWrap{ padding:0 130px !important; /* 强制遮罩层显示2侧各130px */   }
+	.slider .bd ul{ margin-left:-630px !important;  }
+	.slider .pnBtn{ position:absolute; top:0; width:130px; height:338px; cursor:pointer;   }
+	.slider .prev{ left:0;  }
+	.slider .next{ right:0; }
+	.slider .pnBtn .blackBg{ display:block;  position:absolute; left:0; top:0; width:100%; height:338px; background:#000; filter:alpha(opacity=50);opacity:0.5;}
+	.slider .pnBtn .arrow{ display:none; position:absolute; top:0; z-index:1; width:32px; height:338px; _filter:alpha(opacity=70); }
+	.slider .prev .arrow{ left:0; background:url(images/left.png) 0 center no-repeat;   }
+	.slider .next .arrow{ right:0; background:url(images/right.png) 0 center no-repeat;  }
+</style>
+
+<div class="slider">
+  <div class="bd">
+    <ul>
+      <li><a target="_blank" href="http://sc.admin5.com"><img src="images/1.jpg" /></a></li>
+      <li><a target="_blank" href="http://sc.admin5.com"><img src="images/2.jpg" /></a></li>
+      <li><a target="_blank" href="http://sc.admin5.com"><img src="images/3.jpg" /></a></li>
+      <li><a target="_blank" href="http://sc.admin5.com"><img src="images/4.jpg" /></a></li>
+    </ul>
+  </div>
+  <div class="pnBtn prev"> <span class="blackBg"></span> <span class="arrow"></span> </div>
+  <div class="pnBtn next"> <span class="blackBg"></span> <span class="arrow"></span> </div>
+</div>
+
+<script type="text/javascript">
+/* 把最后一个放到第一个前面，然后通过外层ul{margin-left:-630px !important; }来显示第一个 */
+jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
+/* 控制左右按钮显示 */
+jQuery(".slider .pnBtn").hover(function(){ jQuery(this).find(".arrow").show() },function(){ jQuery(this).find(".arrow").hide() });
+/* 调用SuperSlide */
+jQuery(".slider").slide({ mainCell:".bd ul", effect:"leftLoop",  autoPlay:true, vis:3, mouseOverStop:false });
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

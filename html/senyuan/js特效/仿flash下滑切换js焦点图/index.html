@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿flash下滑切换js焦点图 - 网站源码</title>
+<style type="text/css">
+*{padding:0; margin:0}
+body ul { padding: 0; margin: 0; } li { list-style: none; } img { border: 0; }
+.play { width: 400px; height: 430px; background: #333; font: 12px Arial; margin:0 auto }
+.big_pic { width: 400px; height: 320px; overflow: hidden; border-bottom: 1px solid #ccc; background: #222; position: relative; }
+.big_pic li { width: 400px; height: 320px; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 0; background: url(images/loading.gif) no-repeat center center; }
+.mark_left { width: 200px; height: 320px; position: absolute; left: 0; top: 0; background: red; filter: alpha(opacity:0); opacity: 0; z-index:3000; }
+.mark_right { width: 200px; height: 320px; position: absolute; left: 200px; top: 0; background: green; filter: alpha(opacity:0); opacity: 0; z-index:3000; }
+.big_pic .prev { width: 60px; height: 60px; background: url(images/btn.gif) no-repeat; position: absolute; top: 130px; left: 10px; z-index: 3001; cursor: pointer; filter:alpha(opacity: 0); opacity:0; }
+.big_pic .next { width: 60px; height: 60px; background: url(images/btn.gif) no-repeat 0 -60px; position: absolute; top: 130px; right: 10px; z-index: 3001;cursor: pointer; filter:alpha(opacity: 0); opacity:0; }
+.big_pic .text { position: absolute; left: 10px; top: 302px; z-index: 3000; color: #ccc; }
+.big_pic .length { position: absolute; right: 10px; bottom: 4px; z-index: 3000; color: #ccc; }
+.big_pic .bg { width: 400px; height: 25px; background: #000; filter: alpha(opacity=60); opacity: 0.6; position: absolute; z-index: 2999; bottom: 0; left: 0; }
+.small_pic { width: 380px; height: 94px; position: relative; top: 7px; left: 10px; overflow: hidden; }
+.small_pic ul { height: 94px; position: absolute; top: 0; left: 0; }
+.small_pic li { width: 120px; height: 94px; float: left; padding-right: 10px; background: url(images/loading.gif) no-repeat center center; cursor: pointer; filter: alpha(opacity=60); opacity: 0.6; }
+.small_pic img { width: 120px; height: 94px; }
+</style>
+<script>
+function getStyle(obj, attr)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[attr];
+	}
+	else
+	{
+		return getComputedStyle(obj, false)[attr];
+	}
+}
+
+function startMove(obj, attr, iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){
+		var iCur=0;
+		
+		if(attr=='opacity')
+		{
+			iCur=parseInt(parseFloat(getStyle(obj, attr))*100);
+		}
+		else
+		{
+			iCur=parseInt(getStyle(obj, attr));
+		}
+		
+		var iSpeed=(iTarget-iCur)/8;
+		iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+		
+		if(iCur==iTarget)
+		{
+			clearInterval(obj.timer);
+		}
+		else
+		{
+			if(attr=='opacity')
+			{
+				obj.style.filter='alpha(opacity:'+(iCur+iSpeed)+')';
+				obj.style.opacity=(iCur+iSpeed)/100;
+			}
+			else
+			{
+				obj.style[attr]=iCur+iSpeed+'px';
+			}
+		}
+	}, 30)
+}
+function getByClass(oParent, sClass)
+{
+	var aEle=document.getElementsByTagName('*');
+	var i=0;
+	var aResult=[];
+	
+	for(i=0;i<aEle.length;i++)
+	{
+		if(aEle[i].className==sClass)
+		{
+			aResult.push(aEle[i]);
+		}
+	}
+	
+	return aResult;
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('playeimages');
+	var oBtnPrev=getByClass(oDiv, 'prev')[0];
+	var oBtnNext=getByClass(oDiv, 'next')[0];
+	var oMarkLeft=getByClass(oDiv, 'mark_left')[0];
+	var oMarkRight=getByClass(oDiv, 'mark_right')[0];
+	
+	var oSmallUl=getByClass(oDiv, 'small_pic')[0].getElementsByTagName('ul')[0];
+	var aSmallLi=oSmallUl.getElementsByTagName('li');
+	var oBigUl=getByClass(oDiv, 'big_pic')[0];
+	var aBigLi=oBigUl.getElementsByTagName('li');
+	var iNow=0;
+	var iMinZindex=2;
+	var i=0;
+	
+	oSmallUl.style.width=aSmallLi.length*aSmallLi[0].offsetWidth+'px';
+	
+	//上面的左右按钮
+	oBtnPrev.onmouseover=oMarkLeft.onmouseover=function ()
+	{
+		startMove(oBtnPrev, 'opacity', 100);
+	}
+	
+	oBtnPrev.onmouseout=oMarkLeft.onmouseout=function ()
+	{
+		startMove(oBtnPrev, 'opacity', 0);
+	}
+	
+	oBtnNext.onmouseover=oMarkRight.onmouseover=function ()
+	{
+		startMove(oBtnNext, 'opacity', 100);
+	}
+	
+	oBtnNext.onmouseout=oMarkRight.onmouseout=function ()
+	{
+		startMove(oBtnNext, 'opacity', 0);
+	}
+
+	//小图点击，大图显示
+	for(i=0;i<aSmallLi.length;i++)
+	{
+		aSmallLi[i].index=i;
+		aSmallLi[i].onmouseover=function ()
+		{
+			startMove(this, 'opacity', 100);
+		}
+		aSmallLi[i].onmouseout=function ()
+		{
+			if(this.index!=iNow)
+			{
+				startMove(this, 'opacity', 60);
+			}
+		}
+		
+		aSmallLi[i].onclick=function ()
+		{
+			if(this.index==iNow)return;
+			iNow=this.index;
+			
+			tab();
+		}
+		
+		function tab()
+		{
+			for(i=0;i<aSmallLi.length;i++)
+			{
+				startMove(aSmallLi[i], 'opacity', 60);
+			}
+			startMove(aSmallLi[iNow], 'opacity', 100);
+			aBigLi[iNow].style.zIndex=iMinZindex++;
+			aBigLi[iNow].style.height=0;
+			
+			startMove(aBigLi[iNow], 'height', oBigUl.offsetHeight);
+			
+			if(iNow==0)
+			{
+				startMove(oSmallUl, 'left', 0);
+			}
+			else if(iNow==aSmallLi.length-1)
+			{
+				startMove(oSmallUl, 'left', -(iNow-2)*aSmallLi[0].offsetWidth);
+			}
+			else
+			{
+				startMove(oSmallUl, 'left', -(iNow-1)*aSmallLi[0].offsetWidth);
+			}
+		}
+		
+		oBtnPrev.onclick=function ()
+		{
+			iNow--;
+			if(iNow==-1)
+			{
+				iNow=aSmallLi.length-1;
+			}
+			
+			tab();
+		}
+		
+		oBtnNext.onclick=function ()
+		{
+			iNow++;
+			if(iNow==aSmallLi.length)
+			{
+				iNow=0;
+			}
+			
+			tab();
+		}
+	}
+}
+</script>
+</head>
+<body>
+<br>
+<div id="playimages" class="play">
+    <ul class="big_pic">
+		<div class="prev"></div>
+		<div class="next"></div>
+        <!--<div class="text">加载图片说明……</div>
+		<div class="length">计算图片数量……</div>-->
+		<a class="mark_left" href="javascript:;"></a>
+		<a class="mark_right" href="javascript:;"></a>
+		<!--<div class="bg"></div>	-->
+        <li style="z-index:1;"><img src="images/120617_pic6.jpg" /></li>
+        <li><img src="images/120617_pic7.jpg" /></li>
+        <li><img src="images/120617_pic5.jpg" /></li>
+        <li><img src="images/120617_pic4.jpg" /></li>
+        <li><img src="images/120617_pic3.jpg" /></li>
+        <li><img src="images/120617_pic2.jpg" /></li>
+        <li><img src="images/120617_pic1.jpg" /></li>
+    </ul>
+    <div class="small_pic">
+        <ul style="width:390px;">
+            <li style="filter: 100; opacity: 1;"><img src="images/120617_pic6.jpg" /></li>
+            <li><img src="images/120617_pic7.jpg" /></li>
+            <li><img src="images/120617_pic5.jpg" /></li>
+            <li><img src="images/120617_pic4.jpg" /></li>
+            <li><img src="images/120617_pic3.jpg" /></li>
+            <li><img src="images/120617_pic2.jpg" /></li>
+            <li><img src="images/120617_pic1.jpg" /></li>
+        </ul>
+    </div>
+</div>
+<!--End-->
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

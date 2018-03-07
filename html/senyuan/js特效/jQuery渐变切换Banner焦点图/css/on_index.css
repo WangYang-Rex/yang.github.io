@@ -1,0 +1,22 @@
+﻿@charset "utf-8";
+body, ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div, input {margin:0;padding:0;-webkit-text-size-adjust: none}
+h1, h2, h3, h4, h5, h6{font-size:12px;font-weight:normal}
+a img {border:0}
+body { color: #333; text-align: center; font: 12px "宋体"; }
+ul, ol, li {list-style-type:none;vertical-align:0}
+a {outline-style:none;color:#535353;text-decoration:none}
+a:hover { color: #D40000; text-decoration: none}
+.topvebanner { margin: 0 auto; width: 960px; height: 300px; overflow: hidden; }
+.topvebanner ul { margin: 0; padding: 0; }
+#myjQuery { BACKGROUND: #000; OVERFLOW: hidden; WIDTH: 960px; POSITION: relative; HEIGHT: 300px; }
+#myjQueryContent { OVERFLOW: hidden; WIDTH: 960px; HEIGHT: 300px; }
+#myjQueryContent DIV { POSITION: absolute; HEIGHT: 300px; }
+#myjQueryContent .smask { Z-INDEX: -1; }
+#myjQueryContent IMG { WIDTH: 960px; HEIGHT: 300px; border: 0; }
+#myjQueryNav { DISPLAY: block; OVERFLOW: hidden; WIDTH: 81px; HEIGHT: 8px; position: absolute; top: 282px; right: 10px; z-index: 5; }
+#myjQueryNav LI { DISPLAY: block; FLOAT: left; WIDTH: 15px; CURSOR: pointer; HEIGHT: 8px; TEXT-ALIGN: center; margin-left: 1px; background: #666; color: #fff; }
+#myjQueryNav .nbg { BACKGROUND: #666; }
+#myjQueryNav A { DISPLAY: block; Z-INDEX: 12; MARGIN: 0px auto; TEXT-TRANSFORM: uppercase; WIDTH: 45px; COLOR: #ffffff; LINE-HEIGHT: 22px; POSITION: relative; HEIGHT: 22px; z-index: 20; }
+#myjQueryNav .current { BACKGROUND: #347e0d; }
+#myjQueryNav .current A { COLOR: #fff; }
+#myjQuery #flow { background: url(../images/fcurrent.gif) no-repeat; margin-top: -33px; WIDTH: 45px; HEIGHT: 22px; Z-INDEX: 22; left: 652px; POSITION: absolute; }

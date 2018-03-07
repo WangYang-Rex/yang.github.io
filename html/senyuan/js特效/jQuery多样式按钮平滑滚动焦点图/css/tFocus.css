@@ -1,0 +1,38 @@
+/* 全局样式 */
+body, ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div, input {margin:0;padding:0;-webkit-text-size-adjust: none}
+h1, h2, h3, h4, h5, h6{font-size:12px;font-weight:normal;}
+body>div, form>div {margin:0 auto;}
+div {text-align:left;}
+a img {border:0;}
+table{border-collapse:collapse; border-spacing:0;}
+select,input,textarea{ font: 12px "宋体"; outline: none; }
+body { color: #666666; text-align: center; font: 12px "宋体"; background: #F4FCFF; }
+ul, ol, li {list-style-type:none;vertical-align:0;}
+a {outline-style:none;color:#666666;text-decoration:none;}
+a:hover {text-decoration:underline;}
+a, area {blr:expression(this.onFocus=this.blur())}
+:focus {-moz-outline-style: none;}
+.clear {clear:both;height:0; overflow:hidden; visibility:hidden}
+.hidden {display:none;}
+.block {display:block;}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{clear:both;content:".";height:0;display:block;visibility:hidden;}
+
+.keChgImg { height: 272px; width: 420px; border: 5px solid #CCCCCC; background: #FFF; position: relative; overflow: hidden; margin: 0px auto; }
+.keImgs li { float: left; height: 272px; width: 420px; }
+.keImgs { height: 272px; overflow: hidden; position: absolute; left: 0px; top: 0px; }
+.keImgTitleBg { line-height: 28px; background: #FFF; height: 28px; width: 420px; position: absolute; left: 0px; bottom: 0px; opacity:0.9; filter:alpha(opacity=90) }
+.keImgBtn { float: right; position: absolute; bottom: 0px; right: 0px; }
+.keImgBtn ul li { float: right; height: 22px; width: 26px; text-align: center; padding-top: 6px; position: relative; color: #FFF; cursor: pointer; font: 14px "微软雅黑"; }
+.keCor1 { background: #f72e07; }
+.keCor2 { background: #f75007; }
+.keCor3 { background: #f77807; }
+.keCor4 { background: #f7c107; }
+.keCor5 { background: #f7e907; }
+.keImgBtn ul li img { display: none; position: absolute; left: 7px; top: 0px; }
+.keImgBtn ul li.keImgCutLi img{display:block}
+.keChgBtnL { position: absolute; left: 0px; top: 97px; cursor: pointer; z-index:10 }
+.keChgBtnR { position: absolute; right: 0px; top: 97px; cursor: pointer; z-index:10 }
+.keImgTxt { line-height: 28px; height: 28px; width: 290px; position: absolute; left: 0px; bottom: 0px; font-size: 12px; color: #3797BD; text-align: center; overflow: hidden }
+.keImgTxt a{ color: #000; font-family: Arial; }

@@ -1,0 +1,276 @@
+/**
+ * styling for DIVAS slider - how to page based on skin 1
+ * @author Federica Sibella - Michela Chiucini
+ * @date 2014/07/23
+ * @version 0.1
+ */
+body {
+   background: none repeat scroll 0 0 #fff;
+   color: #1A1A1A;
+   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+   font-size: 62.5%;/*10px*/
+   font-weight: normal;
+   line-height: 1.4;
+   min-width: 20em;
+   position: relative;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+section, header, footer {
+	position: relative;
+	width: 100%;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin: 0 auto;
+    padding: 0;
+    height: auto;
+}
+
+ul, ol {
+    list-style: none outside none;
+}
+
+header h1 {
+	font-size: 6em;
+}
+
+header {
+	max-width: 1140px;
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+a {
+	color: #FF744D;
+}
+
+#logo {
+	position: relative;
+	padding: 1em auto;
+	padding: 0;
+	text-align: center;
+}
+
+#logo img {
+	max-width: 290px;
+	margin: 15px 0;
+}
+
+#nav {
+	text-align: center;
+}
+
+#nav li {
+    font-size: 1.6em;
+    font-weight: bold;
+    line-height: 70px;
+}
+
+#nav li a {
+	color: #313131;
+	text-decoration: none;
+}
+
+#nav li a:hover {
+	color: #FF744D;
+}
+
+footer {
+	overflow: hidden;
+	background: #313131;
+	color : #f7f7f7;
+	padding: 3em 0 0;
+	font-size: 1.4em;
+}
+
+footer > div {
+	width: 90%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.cinquanta, .cinquanta_last {
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	width: 47%;
+	float: left;
+	margin-right: 3%;
+}
+
+.cinquanta_last {
+	margin-right: 0;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+section.instructions {
+	margin: 2em auto;
+	padding: 0 1em;
+	border-top: 1px solid #CCCCCC;
+	width: auto;
+}
+
+section.instructions .intro{
+	font-size: 3em;
+	color: #999;
+	padding-top: 0.5em;
+}
+
+section.instructions h2 {
+	font-size: 3.8em;
+	font-weight: 300;
+	text-align: center;
+	color: #FF744D;
+	padding-top: 1.5em;
+}
+
+section.instructions h3 {
+	font-size: 2.5em;
+	font-weight: normal;
+	padding-top: 1em;
+}
+
+section.instructions h3 span.variable_type {
+	font-style: italic;
+}
+
+section.instructions p, section.instructions li {
+	font-size: 2.2em;
+	margin-bottom: 0.7em;
+}
+
+section.instructions p.up {
+	font-size: 4em;
+	cursor: pointer;
+	text-align: right;
+	margin-bottom: 0;
+}
+
+section.instructions p.up:hover {
+	color: #FF744D;
+}
+
+section.instructions pre {
+	font-size: 1.6em;
+	border: 1px solid #ccc;
+	white-space:normal;
+}
+
+footer {
+	margin: 2em auto 0 auto;	
+}
+
+footer p {
+	padding-bottom: 3em;
+	text-align: center;
+}
+
+footer a {
+	color: #FF744D;
+	text-decoration: none;
+}
+
+.esc {
+	position: relative;
+	width: 100%;
+	height: 1px;
+	clear: both;
+}
+
+@media screen and (min-width: 46em) {
+	header {
+		padding: 5px 0 ;
+	}
+	
+	.wrapper {
+		border-top: 1px solid #ccc;
+	}
+	
+	#nav {
+		float: left;
+		width: 30%;
+		text-align: left;
+		overflow: visible;
+	}
+	
+	#nav li {
+		float: left;
+		text-align: left;
+		text-transform: none;
+		margin-right: 40px;
+	}
+	
+	#logo {
+		width: 40%;
+		float: left;
+	}
+	
+	header #buy {
+		text-align: right;
+	}
+	
+	section.instructions {
+		margin: 0 auto 0 22%;
+		border-left: 3px solid #ccc;
+		border-top: none;
+		overflow: hidden;
+		padding: 2em 4em 0;
+		-moz-box-sizing: border-box;  
+	    -webkit-box-sizing: border-box;   
+	    box-sizing: border-box;   
+	}
+	
+	section.instructions h2 {
+	    text-align: left;
+	}
+	
+	section#toc {
+		margin-left: 0;
+	    padding-left: 0;
+	    float: left;
+	    text-align: left;
+	    width: 21%;
+		margin-top: 0;
+		border-left: none;
+	}
+	
+	section#toc h2 {
+		color: #CCCCCC;
+	    font-size: 1.3em;
+	    letter-spacing: 1px;
+	    margin-top: 4em;
+	    text-transform: uppercase;
+	}
+	
+	#toc li {
+	    margin-bottom: 0;
+	}
+	
+	section#toc li a {
+	    color: #313131;
+	    font-size: 0.7em;
+	    text-decoration: none;
+	}
+	
+	section#toc li a:hover {
+	    color:#FF744D;
+	}
+	
+	#copyright {
+		float: left;
+	}
+		
+	#follow {
+		float: left;
+		width: 20%;
+		text-align: center;
+	}
+}

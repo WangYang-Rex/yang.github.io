@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jquery带进度条提示焦点图 - A5源码</title>
+
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/jquery.carouFredSel-6.0.4-packed.js" type="text/javascript"></script>
+<script type="text/javascript">
+function prevTimers() {
+	return allTimers().slice( 0, $('#pager a.selected').index() );
+}
+function allTimers() {
+	return $('#pager a span');
+}
+
+$(function() {
+	$('#carousel').carouFredSel({
+		items: 1,
+		auto: {
+			pauseOnHover: 'resume',
+			progress: {
+				bar: '#pager a:first span'
+			}
+		},
+		scroll: {
+			fx: 'crossfade',
+			duration: 300,
+			timeoutDuration: 2000,
+			onAfter: function() {
+				allTimers().stop().width( 0 );
+				prevTimers().width( 140 );
+				$(this).trigger('configuration', [ 'auto.progress.bar', '#pager a.selected span' ]);
+			}
+		},
+		pagination: {
+			container: '#pager',
+			anchorBuilder: false
+		}
+	});
+});
+</script>
+
+<style type="text/css">
+html, body{height:100%;padding:0;margin:0;}
+body{min-height:450px;}
+body *{font-family:Arial, Geneva, SunSans-Regular, sans-serif;font-size:14px;color:#333;line-height:22px;}
+#wrapper{width:576px;height:335px;margin:40px auto;}
+#carousel{width:576px;height:335px;}
+#carousel img{border:1px solid #ccc;display:block;padding:10px;float:left;}
+#pager{margin-top:5px;width:600px;}
+#pager a, #pager span{display:block;height:10px;}
+#pager a{border:1px solid #ccc;width:140px;margin-right:3px;float:left;}
+#pager a:hover{border-color:#999;}
+#pager span{background-color:#ccc;width:0px;}
+</style>
+
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="carousel">
+		<img src="img/cars.jpg" alt="cars" width="554" height="313" />
+		<img src="img/rat.jpg" alt="rat" width="554" height="313" />
+		<img src="img/toystory.jpg" alt="toystory" width="554" height="313" />
+		<img src="img/walle.jpg" alt="walle" width="554" height="313" class="last" />
+	</div>
+	<div id="pager">
+		<a href="#"><span></span></a>
+		<a href="#"><span></span></a>
+		<a href="#"><span></span></a>
+		<a href="#"><span></span></a>
+	</div>
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

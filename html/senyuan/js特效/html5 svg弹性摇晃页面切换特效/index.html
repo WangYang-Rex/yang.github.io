@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>html5 svg弹性摇晃页面切换特效 - A5源码</title>
+
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/slideshow.css" />
+
+<script src="js/snap.svg-min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+<div class="container">
+	<div id="slideshow" class="slideshow">
+		<ul>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/browser.svg" alt="Browser Icon"/>
+					<h1>摇摇晃晃的幻灯片效果</h1>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/heart.svg" alt="Heart Icon"/>
+					<blockquote>
+						<p>不要害怕争吵,但寻求危险的冒险。</p>
+					</blockquote>
+					<p>大仲马（法国作家）</p>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/letter.svg" alt="Letter Icon"/>
+					<blockquote>
+						<p>如果你不知道你要去哪里,任何道路都将让你在那里。</p>
+					</blockquote>
+					<p>路易斯·卡罗尔（英国作家）</p>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/football.svg" alt="Football Icon"/>
+					<blockquote>
+						<p>拖延是跟上昨天的艺术。</p>
+					</blockquote>
+					<p>唐·马奎斯</p>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/match.svg" alt="Match Icon"/>
+					<blockquote>
+						<p>我是一个理想主义者。我不知道我去哪里,但是我马上就来。</blockquote>
+					<p>桑德堡</p>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<img class="icon" src="img/icons/watch.svg" alt="Watch Icon"/>
+					<blockquote>
+						<p>我拒绝加入任何俱乐部,我是一个成员。</blockquote>
+					<p>格劳乔·马克斯</p>
+				</div>
+			</li>
+			<li>
+				<div class="slide">
+					<div class="related">
+						<p>如果你喜欢这个演示你可能也喜欢:</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div><!-- /container -->
+
+<script type="text/javascript" src="js/classie.js"></script>
+<script type="text/javascript" src="js/sliderFx.js"></script>
+<script type="text/javascript">
+(function(){
+
+	new SliderFx( document.getElementById('slideshow'), {
+		easing : 'cubic-bezier(.8,0,.2,1)'
+	});
+	
+})();
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

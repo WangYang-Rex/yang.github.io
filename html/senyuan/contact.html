@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/banner.js"></script>
+    <title>联系我们</title>
+    <link rel="icon"  href="img/logo.ico" >
+
+    <style>
+        #ditu{
+            width: 100%;
+            height: 626px;
+            position: relative;
+            margin:30px auto;
+
+
+        }
+        .con{
+            margin: 0 auto;
+            display: flex;
+            width: 1160px;
+            margin-top:-60px ;
+            margin-bottom: 35px;
+
+        }
+        .con li{
+            margin: 0 auto;
+            justify-content: center;
+            width: 260px;
+            height: 300px;
+            background-color:#fff;
+            border: 1px solid #cccccc;
+        }
+        .con li a{
+            width: 70px;
+            margin: 30px 66px;
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 40px;
+            padding-left: 35px;
+            display: block;
+
+        }
+        .con li img{
+            margin: 25px auto;
+            display: block;
+        }
+        .con li p {
+            font-size: 14px;
+            color: #6f6f6f;
+            line-height:26px;
+            text-align: center;
+        }
+        .con li p span{
+            color: #000;
+        }
+        .con li:last-child img{
+            width: 200px
+        }
+        .con li b{
+            font-size: 18px;
+            color: #000;
+            line-height: 18px;
+            text-align:center;
+            margin-top: -20px;
+            display: block;
+        }
+        .con01{
+            width: 100%;
+            margin: 0 auto;
+            /*元素高度问题*/
+            overflow:hidden;
+            background-color:#fafafa ;
+            border-bottom: 2px solid #f5f5f5;
+        }
+        .con01 h3{
+            margin: 45px auto 40px;
+            text-align: center;
+        }
+        .con01 form{
+            width:1110px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .con01 form div{
+             width: 510px;
+             height: 34px;
+             margin-bottom: 25px;
+         }
+        .con01 form  .div1{
+            width:1300px;
+        }
+        .con01 form .left{
+            float: left;
+        }
+        .left{
+            float:left;
+        }
+        .con01 form .right{
+            float: right;
+        }
+        .right{
+            float:right;
+        }
+        .con01 form div p {
+            width: 65px;
+            float: left;
+            padding-right: 25px;
+            font-size: 16px;
+            color: #000;
+            line-height: 34px;
+            text-align: right;
+        }
+        .con01 form div input {
+            width: 408px;
+            height: 32px;
+            border: 1px solid #CCC;
+            border-radius: 3px;
+            padding-left: 10px;
+            font-size: 14px;
+            color: #333;
+            line-height: 32px;
+        }
+        .con01 form .button1 {
+            width: 1020px;
+            height: 40px;
+            margin-top:230px;
+            margin-bottom: 50px;
+            display: block;
+            background-color: #d2b988;
+            line-height: 40px;
+            font-size: 14px;
+            color: #FFF;
+            text-align: center;
+            border-radius: 3px;
+            border: none;
+            float: right;
+        }
+        .con01 form .left textarea {
+            width: 1005px;
+            height: 258px;
+            display: block;
+            border: 1px solid #CCC;
+            border-radius: 3px;
+            padding-left: 10px;
+            font-size: 14px;
+            color: #333;
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <header class="header"></header>
+    <div id="ditu">
+        <iframe src="ditu.html" width="100%" height="600px" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div>
+        <ul class="con">
+            <li>
+                <img src="img/contact/con1.png" alt=""/>
+                <p><span>森原木线店：</span>绍兴市越城区稽山路256号</p>
+                <p><span>森原木线店：</span>0575-88361677</p>
+                <a href="#">查看地图</a>
+            </li>
+            <li>
+                <img src="img/contact/con2.png" alt=""/>
+                <p><span>超杰木材有限公司：</span>绍兴越城区 </p>
+                <p><span>绍兴基地：</span>0575-88361677 </p>
+            </li>
+            <li>
+                <img src="img/contact/con3.png" alt=""/>
+                <p><span>绍兴工厂地址：</span>九里</p>
+                <p><span>绍兴营销中心：</span>绍兴市越城区稽山路256号</p>
+                <p><span>生产基地: </span>13085695068</p>
+                <p><span>营销中心: </span>0575-88361677</p>
+            </li>
+            <li>
+                <img src="img/contact/con4.png"/>
+                <b>联系我们</b>
+            </li>
+
+        </ul>
+    </div>
+    <div class="con01">
+        <h3>
+            <img src="img/contact/conh1.png" alt=""/>
+        </h3>
+        <form action="">
+            <div class="left">
+                <p><span>*</span>姓名：</p>
+                <input name="name" type="text" maxlength="10" id="uname" class="input" required="required">
+            </div>
+            <div class="right">
+                <p><span>*</span>手机：</p>
+                <input name="phone" type="text" maxlength="11" id="phone" class="input" required="required">
+            </div>
+            <div class="left">
+                <p>邮箱：</p>
+                <input name="mail" type="text" maxlength="20" id="email" class="input">
+            </div>
+            <div class="right">
+                <p><span>*</span>地址：</p>
+                <input name="addr" type="text" maxlength="20" id="area" class="input">
+            </div>
+            <div class="left div1">
+                <p class="left"><span>*</span>留言：</p>
+                <textarea name="say" rows="2" cols="80" id="labor" class="textarea left" required="required"></textarea>
+            </div>
+            <input id="sub" class="button1" type="submit" name="ok" value="提交留言">
+        </form>
+    </div>
+
+    <!--底部-->
+    <footer class="footer"></footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/*header*/
+#header{
+    background:#868686;
+    height:100px;
+    min-width: 1240px;
+}
+/*上半部分：登录，注册,搜索框*/
+#top{
+    width: 1240px;
+    height:20px;
+    margin: 0 0 0 80px;
+    /*文字对齐*/
+    text-align:right;
+}
+#top>a{
+    font-size: 12px;
+    color:#fff;
+    margin-left: 5px;
+}
+/*下半部分：logo和标签*/
+#global-nav{
+    width: 100%;
+    height:80px;
+    /*最上层*/
+    z-index:100;
+    background:rgba(128,128,128,0.5);
+    position:fixed;
+}
+#global-nav>div.global-content{
+    display: flex;
+    width:1240px;
+    margin:0 auto;
+}
+#global-nav>div.global-content>a img{
+    width:170px;
+}
+#sub-nav{
+    width:910px;
+    height:80px;
+    /*弹性布局*/
+    display:flex;
+    justify-content:space-between;
+    margin:0 0 0 96px;
+    line-height:80px;
+}
+#sub-nav>li{
+    width: 200px;
+    text-align: center;
+}
+#sub-nav>li>a{
+    font-size: 25px;
+    color: #fff;
+    /*加粗*/
+    font-weight:bold ;
+}
+#sub-nav>li{
+    position:relative;
+    transition:all 0.5s;
+}
+#sub-nav>li:hover{
+    border-bottom:3px solid #fff;
+}
+

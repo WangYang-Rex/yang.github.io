@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js自适应宽度焦点图切换代码 - A5源码</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, maximum-scale=2.0">
+
+<link type="text/css" href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="index_banner" id="banner_tabs">
+	<ul>
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner1.jpg" width="100%"></a></li>
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner2.jpg" width="100%"></a></li>      
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner3.jpg" width="100%"></a></li>    
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner4.jpg" width="100%"></a></li>
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner5.jpg" width="100%"></a></li>
+		<li><a href="http://sc.admin5.com" target="_blank"><img src="images/index_banner6.jpg" width="100%"></a></li>
+	</ul>
+	<!--此处的img是用来占位的，在实际使用中，可以另外制作一张全空的图片-->
+	<img style="visibility:hidden;" src="images/index_banner1.jpg" width="100%">
+	<cite>
+		<span class="cur">1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+	</cite>
+	<div class="clear"></div>
+</div>
+
+
+<script type="text/javascript">
+(function(){
+	if(!Function.prototype.bind){
+		Function.prototype.bind = function(obj){
+			var owner = this,args = Array.prototype.slice.call(arguments),callobj = Array.prototype.shift.call(args);
+			return function(e){e=e||top.window.event||window.event;owner.apply(callobj,args.concat([e]));};
+		};
+	}
+})();
+var banner_tabs = function(id){
+	this.ctn = document.getElementById(id);
+	this.adLis = null;
+	this.btns = null;
+	this.animStep = 0.2;//动画速度0.1～0.9
+	this.switchSpeed = 6;//自动播放间隔(s)
+	this.defOpacity = 1;
+	this.tmpOpacity = 1;
+	this.crtIndex = 0;
+	this.crtLi = null;
+	this.adLength = 0;
+	this.timerAnim = null;
+	this.timerSwitch = null;
+	this.init();
+};
+banner_tabs.prototype = {
+	fnAnim:function(toIndex){
+		if(this.timerAnim){window.clearTimeout(this.timerAnim);}
+		if(this.tmpOpacity <= 0){
+			this.crtLi.style.opacity = this.tmpOpacity = this.defOpacity;
+			this.crtLi.style.filter = 'Alpha(Opacity=' + this.defOpacity*100 + ')';
+			this.crtLi.style.zIndex = 0;
+			this.crtIndex = toIndex;
+			return;
+		}
+		this.crtLi.style.opacity = this.tmpOpacity = this.tmpOpacity - this.animStep;
+		this.crtLi.style.filter = 'Alpha(Opacity=' + this.tmpOpacity*100 + ')';
+		this.timerAnim = window.setTimeout(this.fnAnim.bind(this,toIndex),50);
+	},
+	fnNextIndex:function(){
+		return (this.crtIndex >= this.adLength-1)?0:this.crtIndex+1;
+	},
+	fnSwitch:function(toIndex){
+		if(this.crtIndex==toIndex){return;}
+		this.crtLi = this.adLis[this.crtIndex];
+		for(var i=0;i<this.adLength;i++){
+			this.adLis[i].style.zIndex = 0;
+		}
+		this.crtLi.style.zIndex = 2;
+		this.adLis[toIndex].style.zIndex = 1;
+		for(var i=0;i<this.adLength;i++){
+			this.btns[i].className = '';
+		}
+		this.btns[toIndex].className = 'cur'
+		this.fnAnim(toIndex);
+	},
+	fnAutoPlay:function(){
+		this.fnSwitch(this.fnNextIndex());
+	},
+	fnPlay:function(){
+		this.timerSwitch = window.setInterval(this.fnAutoPlay.bind(this),this.switchSpeed*1000);
+	},
+	fnStopPlay:function(){
+		window.clearTimeout(this.timerSwitch);
+	},
+	init:function(){
+		this.adLis = this.ctn.getElementsByTagName('li');
+		this.btns = this.ctn.getElementsByTagName('cite')[0].getElementsByTagName('span');
+		this.adLength = this.adLis.length;
+		for(var i=0,l=this.btns.length;i<l;i++){
+			with({i:i}){
+				this.btns[i].index = i;
+				this.btns[i].onclick = this.fnSwitch.bind(this,i);
+				this.btns[i].onclick = this.fnSwitch.bind(this,i);
+			}
+		}
+		this.adLis[this.crtIndex].style.zIndex = 2;
+		this.fnPlay();
+		this.ctn.onmouseover = this.fnStopPlay.bind(this);
+		this.ctn.onmouseout = this.fnPlay.bind(this);
+	}
+};
+var player1 = new banner_tabs('banner_tabs');
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

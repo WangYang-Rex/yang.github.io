@@ -1,0 +1,45 @@
+﻿@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding:0;
+	margin:0;
+	font-family: "宋体";
+	color: #000;
+}
+table {	border-collapse:collapse;	border-spacing:0;}
+fieldset, img {	border:0;}
+address, caption, cite, code, dfn, em, th, var {	font-weight:normal;	font-style:normal;}
+strong {	font-style:normal;}
+ol, ul, li {	list-style:none outside none;}
+caption {	text-align:left;}
+h1, h2, h3, h4, h5, h6 {	font-weight:normal;	font-size:100%;}
+q:before, q:after {	content:'';}
+abbr, acronym {	border:0;}
+	a{ text-decoration:none; color:#666; font-family:"微软雅黑"; font-size:12px;  }
+
+
+input {outline:none;*outline:expression(this.hideFocus=true);}
+button::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner {
+border:none;
+padding:0;
+}
+.clear:after {	visibility:hidden;	display:block;	font-size:0;	content:"1";	clear:both;	height:0;}
+.fLe {	float:left;	_display:inline;}
+.fRi {	float:right;	_display:inline;}
+.clear {	clear:both; }
+
+/* focusBar */
+#focusBar{width:100%;height:492px;clear:both;position:relative; overflow:hidden;padding-top:10px;}
+#focusBar .mypng{ background:url(../images/9.gif) repeat-x top center; padding-top:2px;}
+#focusBar li{width:100%;clear:both;height:462px;display:none;position:absolute;/* position:relative;*/ }
+#focusBar .focusL{height:462px;position:absolute;z-index:9;/*left:-1000px;*/ top:0px;left:-960px;margin-left:50%;}
+#focusBar .focusR{height:462px;position:absolute;z-index:10;/* right:1000px;*/top:0px;left:-960px;margin-left:50%;}
+
+#focusBar .arrL,#focusBar .arrR{display:block;width:52px;height:134px;position:absolute;top:150px;z-index:11111;cursor:pointer;background:url(../images/bt_arr.png) no-repeat;}
+#focusBar .arrL{left:-52px;background-position:0px 0px;}
+#focusBar .arrR{right:-52px;background-position:-68px 0px;}
+#focusBar .arrL:hover{background-position:0px -144px;}
+#focusBar .arrR:hover{background-position:-68px -144px;}
+.zhezhao{height:492px;position:absolute;z-index:19;/* right:1000px;*/top:-15px;left:-960px;margin-left:50%;}
+
+
+

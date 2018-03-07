@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery图片叠加点击轮换效果</title>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/pic_back_turn.js"></script>
+
+<style type="text/css">
+*{padding:0;margin:0;}
+li{list-style:none;}
+body{background:#ccc;}
+
+/* wrap */
+#wrap{width:620px;height:300px;overflow:hidden;margin:50px auto;position:relative;border:solid 2px #fff;}
+#pic0{width:300px;height:300px;z-index:4;position:absolute;top:0px;left:320px;cursor:pointer;}
+#pic1{width:280px;height:280px;z-index:3;position:absolute;top:10px;left:240px;cursor:pointer;}
+#pic2{width:260px;height:260px;z-index:2;position:absolute;top:20px;left:160px;cursor:pointer;}
+#pic3{width:240px;height:240px;z-index:1;position:absolute;top:30px;left:80px;cursor:pointer;}
+#pic4{width:220px;height:220px;z-index:0;position:absolute;top:40px;left:0px;cursor:pointer;}
+</style>
+
+
+</head>
+<body>
+
+	<div id="wrap">
+		<img id="pic0" src="images/1.png" alt="第1张图片">
+		<img id="pic1" src="images/2.png" alt="第2张图片">
+		<img id="pic2" src="images/3.png" alt="第3张图片">
+		<img id="pic3" src="images/4.png" alt="第4张图片">
+		<img id="pic4" src="images/5.png" alt="第5张图片">
+	</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+</body>
+</html>

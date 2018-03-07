@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<title>jQuery斜切式双图切换焦点图</title>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="js/jquery.carouFredSel-6.0.4-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var scrollDuration = 400;
+				var scrollEasing = 'quadratic';
+
+				//	small images carousel
+				$('#carousel-small').carouFredSel({
+					direction: 'up',
+					width: 315,
+					height: 220,
+					items: {
+						visible: 1,
+						width: 315,
+						height: 220
+					},
+					align: false,
+					pagination: '#navi',
+					scroll: {
+						fx: 'directscroll',
+						duration: scrollDuration,
+						timeoutDuration: 1500,
+						easing: scrollEasing,
+						onBefore: function( data ) {
+							data.items.old.animate({
+								'margin-right': -100
+							}, scrollDuration, scrollEasing);
+
+							data.items.visible.css({
+								'margin-right': 120
+							}).animate({
+								'margin-right': 10
+							}, scrollDuration, scrollEasing);
+
+
+							var index = $(this).triggerHandler( 'currentPosition' );
+							if ( index == 0 ) {
+								index = $(this).children().length;
+							}
+
+							//	trigger the titles carousel
+							$('#carousel-title').trigger('slideTo', [ index, 'next' ]);
+
+							//	trigger the large images carousel
+							$('#carousel-large').trigger('slideTo', [ index, 'prev' ]);
+						}
+					}
+				});
+
+				//	large images carousel, controlled by the small images carousel
+				$('#carousel-large').carouFredSel({
+					direction: 'down',
+					width: 615,
+					height: 300,
+					items: {
+						visible: 1,
+						width: 615,
+						height: 300
+					},
+					align: false,
+					auto: false,
+					scroll: {
+						fx: 'directscroll',
+						duration: scrollDuration,
+						easing: scrollEasing,
+						onBefore: function( data ) {
+							data.items.old.animate({
+								'margin-left': -140
+							}, scrollDuration, scrollEasing);
+
+							data.items.visible.css({
+								'margin-left': 160
+							}).animate({
+								'margin-left': 10
+							}, scrollDuration, scrollEasing);
+						}
+					}
+				});
+
+				//	titles carousel, controlled by the small images carousel
+				$('#carousel-title').carouFredSel({
+					width: 350,
+					height: 100,
+					items: {
+						visible: 1,
+						width: 350,
+						height: 100
+					},
+					align: false,
+					auto: false,
+					scroll: {
+						fx: 'directscroll',
+						duration: scrollDuration,
+						easing: scrollEasing
+					}
+				});
+
+				//	tweek the pagination to always scroll forward
+				$('#navi a')
+					.unbind( 'click' )
+					.bind( 'click', function( event ) {
+						event.preventDefault();
+						$('#carousel-small').trigger( 'slideTo', [$(this).index(), true, 'next'] );
+					}
+				);
+			});
+		</script>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				min-height: 500px;
+				background-color: #fff;
+			}
+			body * {
+				font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				font-size: 14px;
+				color: #333;
+				line-height: 22px;
+			}
+			
+			#wrapper {
+				width: 800px;
+				height: 320px;
+				margin: -160px 0 0 -400px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				overflow: hidden;
+			}
+			
+			#carousel-title {
+				width: 350px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#carousel-title p {
+				font-family: arial, helvetica, sans-serif;
+				font-size: 30px;
+				font-weight: bold;
+				color: #999;
+				width: 325px;
+				height: 75px;
+				margin: 0;
+				padding: 25px 0 0 25px;
+				float: left;
+			}
+			#carousel-small,
+			#carousel-large {
+				position: absolute;
+			}
+			#carousel-small {
+				width: 300px;
+				height: 220px;
+				bottom: 0;
+				left: 0;
+			}
+			#carousel-large {
+				width: 600px;
+				height: 300px;
+				top: 0;
+				right: 0;
+			}
+			#carousel-large img {
+				display: block;
+				margin-left: 10px;
+				float: left;
+			}
+			#carousel-small img {
+				display: block;
+				margin-right: 10px;
+				float: right;
+			}
+			#navi {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+			#navi a {
+				border: 1px solid #999;
+				background-color: #fff;
+				display: block;
+				width: 8px;
+				height: 8px;
+				margin: 0 0 0 4px;
+				float: left;
+			}
+			#navi a:hover {
+				background-color: #ccc;
+			}
+			#navi a.selected {
+				background-color: #999;
+			}
+			#navi a span {
+				display: none;
+			}
+			.slicer {
+				position: absolute;
+				top: 0;
+				left: 155px;
+			}
+			
+			#donate-spacer {
+				height: 100%;
+			}
+			#donate {
+				border-top: 1px solid #999;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="carousel-large">
+				<img src="img/d1-l.png" width="795" height="300" border="0" />
+				<img src="img/d2-l.png" width="795" height="300" border="0" />
+				<img src="img/d3-l.png" width="795" height="300" border="0" />
+				<img src="img/d4-l.png" width="795" height="300" border="0" />
+				<img src="img/d5-l.png" width="795" height="300" border="0" />
+				<img src="img/d6-l.png" width="795" height="300" border="0" />
+			</div>
+			<img class="slicer" src="img/slicer-title.png" width="198" height="400" border="0" />
+			<div id="carousel-small">
+				<img src="img/d1-s.png" width="500" height="220" border="0" />
+				<img src="img/d2-s.png" width="500" height="220" border="0" />
+				<img src="img/d3-s.png" width="500" height="220" border="0" />
+				<img src="img/d4-s.png" width="500" height="220" border="0" />
+				<img src="img/d5-s.png" width="500" height="220" border="0" />
+				<img src="img/d6-s.png" width="500" height="220" border="0" />
+			</div>
+			<div id="carousel-title">
+				<p>Black truck</p>
+				<p>Dusty black truck</p>
+				<p>White/yellow truck</p>
+				<p>White/red truck</p>
+				<p>Orange truck</p>
+				<p>Green truck</p>
+			</div>
+			<div id="navi"></div>
+			<img class="slicer" src="img/slicer.png" width="208" height="400" border="0" />
+		</div>
+	</body>
+</html>

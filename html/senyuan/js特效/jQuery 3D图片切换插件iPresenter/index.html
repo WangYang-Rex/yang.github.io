@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery 3D图片切换插件iPresenter - A5源码</title>
+
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans+Narrow" />
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<link rel="stylesheet" href="css/demo1.css" />
+
+<!-- JavaScript includes -->
+<script src="js/jquery.min.js"></script>
+
+<script src="js/ipresenter.packed.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#ipresenter').iPresenter({
+			timerPadding: -1,
+			controlNav: true,
+			controlNavThumbs: true,
+			controlNavNextPrev: false
+		});
+	});
+</script>
+</head>
+<body>
+<!-- 代码 开始 -->
+	<div class="container">
+		<div id="ipresenter">
+			<div id="intro" class="step" data-x="0" data-y="0" data-thumbnail="images/thumbnails/1.jpg">
+				<img src="images/details.png" />
+				<h2>A phone that sees the world like you do, in 3D</h2>
+				<p>
+					Now your photos can have as much depth as the moment itself. HTC EVO 3D captures your photos and videos in 3D, plus you can view them without the glasses. The stunning 4.3-inch qHD display gives you crisp websites, vivid images and incredibly fluid videos.
+				</p>
+			</div>
+
+			<div id="capture" class="step" data-x="1100" data-y="1200" data-scale="1.8" data-rotate="180" data-thumbnail="images/thumbnails/2.jpg">
+				<img src="images/ksp1.png" />
+				<h2>Capture life in 3D</h2>
+				<p>
+					HTC EVO 3D allows you to shoot 3D movies and snap 3D photos via dual cameras, so no matter where you are, capture life as it should be. And see it all in true-to-life detail without 3D glasses. from：www.larentuku.com
+				</p>
+			</div>
+
+			<div id="view" class="step" data-x="-300" data-y="600" data-scale="0.2" data-rotate="270" data-thumbnail="images/thumbnails/3.jpg">
+				<img src="images/ksp2.png" />
+				<h2>An incredible view</h2>
+				<p>
+					The large 4.3 inch display serves up incredibly crisp websites, vivid images and fluid video on a pixel-packed qHD screen. Catch the latest blockbusters straight from HTC Watch ?a new service that starts the show just seconds into the download and monitors your Internet connection to ensure uninterrupted viewing.
+				</p>
+			</div>
+		</div>
+	</div>
+<!-- 代码 结束 -->
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.admin5.com/" target="_blank">A5源码</a></p>
+</div>
+</body>
+</html>

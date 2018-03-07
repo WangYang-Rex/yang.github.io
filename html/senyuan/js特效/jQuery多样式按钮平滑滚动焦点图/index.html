@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery多样式按钮平滑滚动焦点图 - 网站源码</title>
+<script language="javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tFocus.css">
+<script language="javascript">
+$(function(){
+//图片滚动宽度
+var wVal=420;
+var Timer=null;
+$(".keImgs").width($(".keImgs").find("li").size()*wVal)
+var keCutNum=0;
+var relNum=$(".keImgBtn li").size();
+//滚动动画
+function srcMove(){
+    $(".keImgs").animate({"left":-keCutNum*wVal},100);
+	$(".keImgBtn li").removeClass("keImgCutLi");$(".keImgBtn li").eq(keCutNum).addClass("keImgCutLi");
+	$(".keImgTxt li").hide();$(".keImgTxt li").eq(keCutNum).show();	
+}
+function keChgImg(){
+ 	keCutNum++;
+	if(keCutNum==relNum){
+		keCutNum=0;
+	}
+	srcMove();
+}
+var Timer=setInterval(keChgImg,3000)
+$(".keChgImg").hover(function(){clearInterval(Timer)},function(){Timer=setInterval(keChgImg,3000)});
+$(".keChgBtnR").click(function(){
+	keCutNum++;
+	if(keCutNum==relNum){
+		keCutNum=0;
+	}
+	srcMove();
+});
+$(".keChgBtnL").click(function(){
+	keCutNum--;
+	if(keCutNum<0){
+		keCutNum=relNum-1;
+	}
+	srcMove();
+});
+$(".keImgBtn li").hover(function(){
+	keCutNum=$(".keImgBtn li").index(this);
+	srcMove();
+});
+//End
+})
+</script>
+<!--[if IE 6]>
+<script src="js/ie6PNG.js" type="text/javascript"></script>
+<script type="text/javascript">DD_belatedPNG.fix('*');</script>
+<![endif]-->
+</head>
+<body>
+<div style="padding:50px;">
+<!--焦点图开始-->
+<div class="keChgImg">
+<ul class="keImgs">
+<li><a href="http://sc.admin5.com"><img src="images/chgImg1.jpg" width="420" height="272" alt="网页特效" /></a></li>
+<li><a href="http://sc.admin5.com"><img src="images/chgImg3.jpg" width="420" height="272" alt="js特效" /></a></li>
+<li><a href="http://sc.admin5.com"><img src="images/chgImg2.jpg" width="420" height="272" alt="网页特效" /></a></li>
+<li><a href="http://sc.admin5.com"><img src="images/chgImg4.jpg" width="420" height="272" alt="A5源码" /></a></li>
+<li><a href="http://sc.admin5.com"><img src="images/chgImg5.jpg" width="420" height="272" alt="A5源码网页特效" /></a></li>
+</ul>
+<div class="keImgTitleBg"></div>
+<div class="keImgBtn">
+ <ul>
+  <li class="keCor1 keImgCutLi">1<img src="images/chgSq.gif" width="11" height="6" /></li>
+  <li class="keCor2">2<img src="images/chgSq.gif" width="11" height="6" /></li>
+  <li class="keCor3">3<img src="images/chgSq.gif" width="11" height="6" /></li>
+  <li class="keCor4">4<img src="images/chgSq.gif" width="11" height="6" /></li>
+  <li class="keCor5">5<img src="images/chgSq.gif" width="11" height="6" /></li>
+ </ul>
+</div>
+<div class="keImgTxt">
+ <ul>
+  <li><a class="cor_blue" href="http://sc.admin5.com/m7_js_mode2_57.html" title="">jQuery鼠标滑过实现多区块图片切换</a></li>
+  <li class="hidden"><a class="cor_blue" href="http://sc.admin5.com/m7_js_mode2_55.html">Js/jQuery上下箭头渐变图文切换（多张）相册特效</a></li>
+  <li class="hidden"><a class="cor_blue" href="http://sc.admin5.com/m7_js_mode2_54.html">纯Js/jQuery多图片左右渐变轮播展示相册</a></li>
+  <li class="hidden"><a class="cor_blue" href="http://sc.admin5.com/m7_js_mode2_53.html">Js/jQuery带左右箭头+按钮弹性滑动焦点图</a></li>
+  <li class="hidden"><a class="cor_blue" href="http://sc.admin5.com/m7_js_mode2_52.html">js/jQuery仿腾讯/新浪图片展示网页特效</a></li>
+ </ul>
+</div>
+<img class="keChgBtnL" src="images/chgBtnL.png" width="40" height="40" />
+<img class="keChgBtnR" src="images/chgBtnR.png" width="40" height="40" />
+</div>
+<!--End-->
+<div class="clear"></div>
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

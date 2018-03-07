@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+		<title>&#38543;&#22270;&#20687;&#22823;&#23567;&#33258;&#21160;&#35843;&#25972;&#30340;jQuery&#28966;&#28857;</title>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="jquery.carouFredSel-6.0.4-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#carousel').carouFredSel({
+					items: 1,
+					auto: false,
+					prev: '#prev',
+					next: '#next',
+					scroll: {
+						onBefore: function( data ) {
+							$('#wrapper').animate({
+								width: data.width,
+								height: data.height,
+								marginTop: -(data.height / 2),
+								marginLeft: -(data.width / 2) - 100
+							}, {
+								duration: data.scroll.duration
+							});
+						}
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				min-height: 600px;
+				background-color: #eee;
+			}
+			body * {
+				font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				font-size: 14px;
+				color: #333;
+				line-height: 22px;
+			}
+
+			#wrapper {
+				width: 350px;
+				height: 500px;
+				padding: 0 100px;
+				margin: -250px 0 0 -275px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+			}
+			#carousel img {
+				display: block;
+				float: left;
+				border: none;
+			}
+			#prev, #next {
+				display: block;
+				position: absolute;
+			}
+			#prev, #next {
+				background: center center no-repeat #c99;
+				width: 100px;
+				height: 100%;
+				top: 0;
+			}
+			#prev:hover, #next:hover {
+				background-color: #c66;
+			}
+			#prev {
+				background-image: url(img/ui-prev.png);
+				left: 0;
+			}
+			#next {
+				background-image: url(img/ui-next.png);
+				right: 0;
+			}
+			
+			#donate-spacer {
+				height: 100%;
+			}
+			#donate {
+				border-top: 1px solid #999;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="carousel">
+				<img src="img/c-350x500-1.jpg" alt="c-350x500-1" width="350" height="500" />
+				<img src="img/c-500x350-1.jpg" alt="c-500x350-1" width="500" height="350" />
+				<img src="img/c-400x400.jpg" alt="c-400x400" width="400" height="400" />
+				<img src="img/c-350x500-2.jpg" alt="c-350x500-2" width="350" height="500" />
+				<img src="img/c-500x350-2.jpg" alt="c-500x350-2" width="500" height="350" />
+			</div>
+			<a id="prev" href="#"></a>
+			<a id="next" href="#"></a>
+		</div>
+<div style="text-align:center;clear:both">
+</div>
+	</body>
+</html>
