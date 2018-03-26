@@ -258,6 +258,145 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/26/前端面试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/26/前端面试/" itemprop="url">前端面试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T14:24:47+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="HTML-amp-CSS-部分"><a href="#HTML-amp-CSS-部分" class="headerlink" title="HTML &amp; CSS 部分"></a>HTML &amp; CSS 部分</h3><ul>
+<li><p>css常用布局<br>定位布局，流布局，浮动布局，flex和grid布局，包括还有三栏布局中的圣杯和双飞翼<br>使用flex实现垂直水平居中</p>
+</li>
+<li><p>BFC<br>盒模型包括怪异盒模型，如何转换 box-sizing</p>
+</li>
+<li><p>session、cookie、sessionStorage、localStorage等区别</p>
+</li>
+<li><p>animation和transiton的相关属性<br>为什么动画推荐用c3而不是js，主要是性能方面….浏览器怎么优化的动画</p>
+</li>
+</ul>
+<h3 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h3><ul>
+<li><p>JavaScript闭包</p>
+</li>
+<li><p>前端跨域<br>CORS怎么实现的</p>
+</li>
+<li><p>JavaScript继承<br>原型继承、构造函数继承、组合继承、寄生组合继承优缺点和实现方式，es5如何实现super关键字</p>
+</li>
+<li><p>JavaScript的节流和防抖</p>
+</li>
+<li><p>js事件执行机制<br>event loop，microtask，task queue<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
+</li>
+<li><p>this指向的问题<br>四种绑定规则，new的执行过程以及箭头函数注意事项</p>
+</li>
+<li><p>es6相关知识点<br>promise的实现方式；<br>generator怎么实现；</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/26/前端面试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/19/JavaScript函数节流和函数防抖之间的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -442,24 +581,17 @@
 
       
         
-          
-            <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
+          <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
 <p>我们都知道 React App 的顶层某个地方肯定有这么一行代码：<code>ReactDOM.render(&lt;App /&gt;, mountNode)</code>，这个 API 调用的作用是在 <code>mountNode</code> 的位置创建一棵 React 的渲染树，React 会接管 <code>mountNode</code> 开始的这棵 DOM 树。</p>
 <p>在 React 的这种管理模式下，会发现使用弹层似乎不太方便，因为组件树是逐层往下生长的，但React 的 API 中并没有直接提供跳出这棵组件树的方法。</p>
-<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。</p>
-<h3 id="那么问题是什么呢？"><a href="#那么问题是什么呢？" class="headerlink" title="那么问题是什么呢？"></a>那么问题是什么呢？</h3><p>别急，我们先聊点别的。</p>
-<p>相信大部分 React 开发者都用过 <code>redux</code>（至少听过吧），<code>react-redux</code> 这个 <code>binding</code> 库提供了连接 <code>React</code> 和 <code>redux</code> 的一个桥梁。<code>react-redux</code> 的实现依赖 <code>React</code> 很有用的一个功能<code>Context</code>，简单来说 <code>context</code> 就是提供了一个方便的跨越层级往下传递数据的方式。<br><code>ReactDOM.render</code> 的问题正是在于这个 <code>context</code> 的功能，它无法连接两棵 <code>React</code> 组件树的 <code>context</code>。<br><code>ReactDOM.render</code> 的函数原型中并没有当前组件树的信息，而 <code>context</code> 是跟组件树有关的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  container,</div><div class="line">  [callback]</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h3 id="解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer"><a href="#解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer" class="headerlink" title="解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer"></a>解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer</h3><p>React 提供了另一个非公开 API：<code>ReactDOM.unstable_renderSubtreeIntoContainer</code>。这个 API 多了一个参数，这个参数就是用来指定新的 React 组件树根节点的父组件的，有了这个参数，两棵本来互不相干的 React 组件树就被联系起来了，同时它们的 <code>context</code> 也连接了起来。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ReactDOM.unstable_renderSubtreeIntoContainer(</div><div class="line">  parentComponent,</div><div class="line">  element,</div><div class="line">  container,</div><div class="line">  [callback]</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="解决方案二-ReactDOM-createPortal"><a href="#解决方案二-ReactDOM-createPortal" class="headerlink" title="解决方案二 ReactDOM.createPortal"></a>解决方案二 ReactDOM.createPortal</h3><p>Portals是reactjs16提供的官方解决方案，使得组件可以脱离父组件层级挂载在DOM树的任何位置。<br>用法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> DemoComponent <span class="keyword">from</span> <span class="string">'./DemoComponent'</span>;</div><div class="line"></div><div class="line">render() &#123;</div><div class="line">  <span class="comment">// react会将DemoComponent组件直接挂载在真真实实的 dom 节点 domNode 上，生命周期还和16版本之前相同。</span></div><div class="line">  <span class="keyword">return</span> ReactDOM.createPortal(</div><div class="line">    &lt;DemoComponent /&gt;,</div><div class="line">    domNode,</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>组件的挂载点虽然可以脱离父组件，但组件的事件通过冒泡机制仍可以传给父组件。<br><a href="https://reactjs.org/docs/portals.html#___gatsby" target="_blank" rel="external">官网portals</a></p>
-<h3 id="例子：rc-dialog"><a href="#例子：rc-dialog" class="headerlink" title="例子：rc-dialog"></a>例子：rc-dialog</h3><p><a href="https://github.com/react-component/dialog" target="_blank" rel="external">https://github.com/react-component/dialog</a></p>
-<p>DialogWrap.jsx<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> Dialog <span class="keyword">from</span> <span class="string">'./Dialog'</span>;</div><div class="line"><span class="keyword">import</span> ContainerRender <span class="keyword">from</span> <span class="string">'rc-util/lib/ContainerRender'</span>;</div><div class="line"><span class="keyword">import</span> Portal <span class="keyword">from</span> <span class="string">'rc-util/lib/Portal'</span>;</div><div class="line"><span class="keyword">import</span> IDialogPropTypes <span class="keyword">from</span> <span class="string">'./IDialogPropTypes'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> IS_REACT_16 = !!ReactDOM.createPortal;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DialogWrap</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">IDialogPropTypes</span>, <span class="title">any</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">    <span class="attr">visible</span>: <span class="literal">false</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  _component: React.ReactElement&lt;any&gt;;</div><div class="line"></div><div class="line">  renderComponent: <span class="function">(<span class="params">props: any</span>) =&gt;</span> <span class="keyword">void</span>;</div><div class="line"></div><div class="line">  removeContainer: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>;</div><div class="line"></div><div class="line">  shouldComponentUpdate(&#123; visible &#125;: &#123; <span class="attr">visible</span>: boolean &#125;) &#123;</div><div class="line">    <span class="keyword">return</span> !!(<span class="keyword">this</span>.props.visible || visible);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">if</span> (IS_REACT_16) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.visible) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent(&#123;</div><div class="line">        <span class="attr">afterClose</span>: <span class="keyword">this</span>.removeContainer,</div><div class="line">        onClose() &#123;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">visible</span>: <span class="literal">false</span>,</div><div class="line">      &#125;);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">this</span>.removeContainer();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  saveDialog = <span class="function">(<span class="params">node: any</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">this</span>._component = node;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getComponent = <span class="function">(<span class="params">extra = &#123;&#125;</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;Dialog</div><div class="line">        ref=&#123;this.saveDialog&#125;</div><div class="line">        &#123;...this.props&#125;</div><div class="line">        &#123;...extra&#125;</div><div class="line">        key="dialog"</div><div class="line">      /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getContainer = () =&gt; &#123;</div><div class="line">    if (this.props.getContainer) &#123;</div><div class="line">      return this.props.getContainer();</div><div class="line">    &#125;</div><div class="line">    const container = document.createElement('div');</div><div class="line">    document.body.appendChild(container);</div><div class="line">    return container;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    const &#123; visible &#125; = this.props;</div><div class="line"></div><div class="line">    let portal: any = null;</div><div class="line"></div><div class="line">    if (!IS_REACT_16) &#123;</div><div class="line">      return (</div><div class="line">        &lt;ContainerRender</div><div class="line">          parent=&#123;this&#125;</div><div class="line">          visible=&#123;visible&#125;</div><div class="line">          autoDestroy=&#123;false&#125;</div><div class="line">          getComponent=&#123;this.getComponent&#125;</div><div class="line">          getContainer=&#123;this.getContainer&#125;</div><div class="line">        &gt;</div><div class="line">          &#123;(&#123; renderComponent, removeContainer &#125;: &#123; renderComponent: any, removeContainer: any &#125;) =&gt; &#123;</div><div class="line">            this.renderComponent = renderComponent;</div><div class="line">            this.removeContainer = removeContainer;</div><div class="line">            return null;</div><div class="line">          &#125;&#125;</div><div class="line">        &lt;/ContainerRender&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (visible || this._component) &#123;</div><div class="line">      portal = (</div><div class="line">        &lt;Portal getContainer=&#123;this.getContainer&#125;&gt;</div><div class="line">          &#123;this.getComponent()&#125;</div><div class="line">        &lt;/Portal&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return portal;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default DialogWrap;</div></pre></td></tr></table></figure></p>
-<p>ContainerRender.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ContainerRender</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">autoMount</span>: PropTypes.bool,</div><div class="line">    <span class="attr">autoDestroy</span>: PropTypes.bool,</div><div class="line">    <span class="attr">visible</span>: PropTypes.bool,</div><div class="line">    <span class="attr">forceRender</span>: PropTypes.bool,</div><div class="line">    <span class="attr">parent</span>: PropTypes.any,</div><div class="line">    <span class="attr">getComponent</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">getContainer</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">children</span>: PropTypes.func.isRequired,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">    <span class="attr">autoMount</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">autoDestroy</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">forceRender</span>: <span class="literal">false</span>,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoMount) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidUpdate() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoMount) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoDestroy) &#123;</div><div class="line">      <span class="keyword">this</span>.removeContainer();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  removeContainer = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.container) &#123;</div><div class="line">      ReactDOM.unmountComponentAtNode(<span class="keyword">this</span>.container);</div><div class="line">      <span class="keyword">this</span>.container.parentNode.removeChild(<span class="keyword">this</span>.container);</div><div class="line">      <span class="keyword">this</span>.container = <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  renderComponent = <span class="function">(<span class="params">props, ready</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> &#123; visible, getComponent, forceRender, getContainer, parent &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="keyword">if</span> (visible || parent._component || forceRender) &#123;</div><div class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.container) &#123;</div><div class="line">        <span class="keyword">this</span>.container = getContainer();</div><div class="line">      &#125;</div><div class="line">      ReactDOM.unstable_renderSubtreeIntoContainer(</div><div class="line">        parent,</div><div class="line">        getComponent(props),</div><div class="line">        <span class="keyword">this</span>.container,</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">if</span> (ready) &#123;</div><div class="line">            ready.call(<span class="keyword">this</span>);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children(&#123;</div><div class="line">      <span class="attr">renderComponent</span>: <span class="keyword">this</span>.renderComponent,</div><div class="line">      <span class="attr">removeContainer</span>: <span class="keyword">this</span>.removeContainer,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Portal.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Portal</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">getContainer</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">children</span>: PropTypes.node.isRequired,</div><div class="line">    <span class="attr">didUpdate</span>: PropTypes.func,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">this</span>.createContainer();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidUpdate(prevProps) &#123;</div><div class="line">    <span class="keyword">const</span> &#123; didUpdate &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="keyword">if</span> (didUpdate) &#123;</div><div class="line">      didUpdate(prevProps);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">this</span>.removeContainer();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  createContainer() &#123;</div><div class="line">    <span class="keyword">this</span>._container = <span class="keyword">this</span>.props.getContainer();</div><div class="line">    <span class="keyword">this</span>.forceUpdate();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  removeContainer() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._container) &#123;</div><div class="line">      <span class="keyword">this</span>._container.parentNode.removeChild(<span class="keyword">this</span>._container);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._container) &#123;</div><div class="line">      <span class="keyword">return</span> ReactDOM.createPortal(<span class="keyword">this</span>.props.children, <span class="keyword">this</span>._container);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>参考链接：<br><a href="https://github.com/react-component/dialog/blob/master/src/DialogWrap.tsx" target="_blank" rel="external">https://github.com/react-component/dialog/blob/master/src/DialogWrap.tsx</a><br><a href="https://github.com/react-component/util/blob/master/src/ContainerRender.js" target="_blank" rel="external">https://github.com/react-component/util/blob/master/src/ContainerRender.js</a><br><a href="https://github.com/react-component/util/blob/master/src/Portal.js" target="_blank" rel="external">https://github.com/react-component/util/blob/master/src/Portal.js</a></p>
-
-          
+<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/08/React组件库开发-多层嵌套弹层组件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1448,134 +1580,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/lodash学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/11/lodash学习笔记/" itemprop="url">lodash学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:10:16+08:00">
-                2017-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Lodash 是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。</p>
-<h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash提供的辅助函数主要分为以下几类:</p>
-<ul>
-<li><code>Array</code>，适用于数组类型，比如填充数据，部分适用于字符串，比如分组、查找、过滤等操作。</li>
-<li><code>Collection</code>，适用于数组和对象类型，部分适用于字符串，比如分组、查找、过滤等操作。</li>
-<li><code>Function</code>，适用于函数类型，比如节流、延迟、缓存、设置钩子等操作。</li>
-<li><code>Lang</code>，普遍适用于各种类型，常用于执行类型判断和类型转换。</li>
-<li><code>Math</code>，适用于数组类型，常用于执行数学运算。</li>
-<li><code>Number</code>，适用于生成随机数，比较数值与数值区间的关系。</li>
-<li><code>Object</code>，适用于对象类型，常用于对象的创建、扩展、类型转换、检索、集合等操作。</li>
-<li><code>Seq</code>，常用于创建链式调用，提高执行性能（惰性计算）。</li>
-<li><code>String</code>，适用于字符串类型。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/11/lodash学习笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1625,7 +1629,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
