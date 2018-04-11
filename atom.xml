@@ -377,7 +377,7 @@
     <link href="http://html-js.site/2018/03/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     <id>http://html-js.site/2018/03/26/前端面试/</id>
     <published>2018-03-26T06:24:47.000Z</published>
-    <updated>2018-03-26T06:45:37.943Z</updated>
+    <updated>2018-04-11T08:28:05.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HTML-amp-CSS-部分"><a href="#HTML-amp-CSS-部分" class="headerlink" title="HTML &amp; CSS 部分"></a>HTML &amp; CSS 部分</h3><ul>
 <li><p>css常用布局<br>定位布局，流布局，浮动布局，flex和grid布局，包括还有三栏布局中的圣杯和双飞翼<br>使用flex实现垂直水平居中</p>
@@ -398,7 +398,7 @@
 </li>
 <li><p>JavaScript的节流和防抖</p>
 </li>
-<li><p>js事件执行机制<br>event loop，microtask，task queue<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
+<li><p>js事件执行机制<br>event loop，microtask，task queue : 任务队列、执行栈<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
 </li>
 <li><p>this指向的问题<br>四种绑定规则，new的执行过程以及箭头函数注意事项</p>
 </li>
@@ -467,7 +467,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;JavaScript的节流和防抖&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;js事件执行机制&lt;br&gt;event loop，microtask，task queue&lt;br&gt;然后事件委托、捕获、冒泡、目标阶段&lt;br&gt;target和currentTarget&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;js事件执行机制&lt;br&gt;event loop，microtask，task queue : 任务队列、执行栈&lt;br&gt;然后事件委托、捕获、冒泡、目标阶段&lt;br&gt;target和currentTarget&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;this指向的问题&lt;br&gt;四种绑定规则，new的执行过程以及箭头函数注意事项&lt;/p&gt;
 &lt;/li&gt;
